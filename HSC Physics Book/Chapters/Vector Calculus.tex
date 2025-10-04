@@ -1,0 +1,595 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    %\addtocontents{toc}{\protect\newpage}
+
+    \chapter{Vector Calculus}
+        \label{ch: Vector Calculus}
+        \thispagestyle{noheader}
+        
+        There are really two forms of vector calculus, one is performing regular calculus operations on the vector algebra covered in \secref{ch: Linear Algebra}, the other is operations on vector fields.
+
+        For the sake of simplicity, only vectors in $\Reals^3$ will be covered here.
+
+
+        \section{Differentiation of Vectors}
+            \label{sec: Differentiation of Vectors}
+
+            Since a large part of physics involves differentiating with respect to time, that is what will be covered here. However, basic rules of calculus apply if you were to replace $t$ with something else.
+
+            \begin{equation}
+                \frac{d\vect{v}}{dt} = \Matrix{\frac{d}{dt} v_x \vspace{2mm}\\ \frac{d}{dt} v_y\vspace{2mm}\\ \frac{d}{dt} v_z}
+            \end{equation}
+
+            \begin{equation}
+                \frac{d}{dt}(\vect{v} + \vect{u}) = \frac{d\vect{v}}{dt}  + \frac{d\vect{u}}{dt}
+            \end{equation}
+
+            \begin{equation}
+                \frac{d}{dt}(\gamma\vect{v}) = \frac{d\gamma}{dt}\vect{v} + \gamma \frac{d\vect{v}}{dt}
+            \end{equation}
+
+
+
+            \subsection{Special Differentiation Identities}
+                \label{subsec: Special Vector Differentiation Identities}
+
+                \subsubsection{Differentiating Vector Products}
+                    \label{subsubsec: Differentiating Vector Products}
+
+                    Each of the vector products follow the product rule. What is important to remember is that the order of the cross products matters and is kept the same as the original (\eqref{eq: cross product differential}).
+                    \begin{equation}
+                        \frac{d}{dt}(\vect{v} \cdot \vect{u}) = \frac{d\vect{v}}{dt} \cdot \vect{u} + \vect{v} \cdot \frac{d\vect{u}}{dt}
+                        \label{eq: dot product differential}
+                    \end{equation}
+                    \hspace{5mm}
+        
+                    \begin{equation}
+                        \frac{d}{dt}(\vect{v} \times \vect{u}) = \frac{d\vect{v}}{dt} \times \vect{u} + \vect{v} \times \frac{d\vect{u}}{dt}
+                        \label{eq: cross product differential}
+                    \end{equation}
+
+                \newpage
+                \subsubsection{Differentiating the Modulus}
+                    \label{subsubsec: Differentiating the Modulus}
+
+                    \begin{align*}
+                        \hspace{30mm}\frac{d\vmod{\vect{v}}}{dt} &= \frac{d}{dt}\sqrt{\vect{v} \cdot \vect{v}}\\
+                        &= \frac{1}{2}\frac{1}{\sqrt{\vect{v} \cdot \vect{v}}} \ \frac{d}{dt}(\vect{v} \cdot \vect{v})\\
+                        &=\frac{1}{2}\frac{1}{\vmod{\vect{v}}} \left(\frac{d\vect{v}}{dt}\cdot\vect{v} + \vect{v} \cdot \frac{d\vect{v}}{dt}\right)\\
+                        &=\bfrac{\frac{d\vect{v}}{dt}\cdot\vect{v}}{\vmod{\vect{v}}}
+                    \end{align*}
+                    \vspace{5mm}
+
+                    \begin{equation}
+                        \frac{d\vmod{\vect{v}}}{dt} = \frac{d\vect{v}}{dt} \cdot \vhat{v}
+                        \label{eq: modulus derivative}
+                    \end{equation}
+
+                    \vspace{10mm}
+
+                \subsubsection{Differentiating the Unit Vector}
+                    \label{subsubsec: Differentiating the Unit Vector}
+
+                    \begin{align*}
+                        \hspace{5mm}\frac{d\vhat{v}}{dt} &= \frac{d}{dt}\left(\frac{\vect{v}}{\vmod{\vect{v}}}\right)\\
+                        &= \bfrac{\frac{d\vect{v}}{dt}\vmod{\vect{v}} - \vect{v}\frac{d\vmod{\vect{v}}}{dt}}{\vmod{\vect{v}}^2}\\
+                        &= \bfrac{\frac{d\vect{v}}{dt}\vmod{\vect{v}} - \vect{v}\left(\frac{d\vect{v}}{dt} \cdot \vhat{v}\right)}{\vmod{\vect{v}}^2} \tag{\text{From \eqref{eq: modulus derivative}}}
+                    \end{align*}
+                    \vspace{5mm}
+
+                    \begin{equation}
+                        \frac{d\vhat{v}}{dt} = \bfrac{\frac{d\vect{v}}{dt} - \vhat{v}\left(\frac{d\vect{v}}{dt} \cdot \vhat{v}\right)}{\vmod{\vect{v}}}
+                        \label{eq: unit vector derivative - projection}
+                    \end{equation}
+                    \hspace{3mm}
+
+                    \begin{equation}
+                        \frac{d\vhat{v}}{dt} = \bfrac{\vhat{v}\times\left(\frac{d\vect{v}}{dt} \times \vhat{v}\right)}{\vmod{\vect{v}}}
+                        \label{eq: unit vector derivative - cross product}
+                    \end{equation}
+
+                \newpage
+        \section{Differentiation of Fields}
+            \label{sec: Differentiation of Fields}
+
+            Thinking back to \secref{ch: Fields} you should remember that there are two types of fields: scalar fields and vector fields.
+
+            Sometimes you will encounter a field which changes with respect to something like time. In this instance you can partially differentiate it to find its rate of change with time(i.e. $\frac{\partial}{\partial t}$).
+
+            In most cases however, you will be dealing with spatial derivatives (i.e. $\frac{\partial}{\partial x}$).
+
+            \subsection{Differentiating Scalar Fields}
+                \label{subsec: Differentiating Scalar Fields}
+
+                Let's say that you have a scalar electric potential $V$ field being generated by a proton with charge $q$, position $\vect{s}$ and, for the sake of argument, let's give that proton a velocity $\vect{v}$.
+                \begin{align*}
+                    \vect{s} &= \Matrix{s_x\\s_y\\s_z} \\
+                    \vect{s} &= \Matrix{0\\0\\0}, \hspace{1em} t=0 \\
+                    \vect{r} &= \Matrix{x\\y\\z} - \vect{s}
+                \end{align*}
+                \begin{equation}
+                    \frac{d\vect{r}}{dt} = -\frac{d\vect{s}}{dt} = -\vect{v}
+                    \label{eq: Derivative of Voltage radius}
+                \end{equation}
+                \begin{equation}
+                    V(\vect{r}) = \frac{1}{4\pi\varepsilon_0}\frac{q}{\vmod{\vect{r}}}
+                    \label{eq: Proton Voltage of r}
+                \end{equation}
+
+
+                \begin{figure}[h]
+                    \centering
+                    \scalebox{1}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=20mm 25mm 20mm 20mm}
+                            {\import{images}{Scalar Field of Proton Voltage 3D.pgf}}
+                        \end{adjustbox}
+                    }
+                    \captionsetup{singlelinecheck=off}
+                    \caption[.]{A visual representation of the scalar field $\protect V$ (the numbers) described in \eqref{eq: Proton Voltage of r} where the position of the proton is the origin (i.e. $t=0$).}
+                    \label{fig: Scalar Field of Proton Voltage 3D}
+                \end{figure}
+                \FloatBarrier
+                \vspace{2em}
+
+
+
+                \subsubsection{Differentiating Scalar Fields with Respect to Time}
+                    \label{subsubsec: Differentiating Scalar Fields with Respect to Time}
+
+                    It is reasonably simple to differentiate this field with respect to time using regular differentiation and some vector identities from \secref{sec: Differentiation of Vectors}.
+
+                    \begin{align*}
+                        \hspace*{6em}\frac{\partial V}{\partial t} &= \frac{q}{4\pi\varepsilon_0}\, \frac{\partial}{\partial t}\left(\frac{1}{\vmod{\vect{r}}}\right)\\
+                        &= \frac{q}{4\pi\varepsilon_0}\, \left(\frac{-1}{\vmod{\vect{r}}^2}\right)\frac{\partial\vmod{\vect{r}}}{\partial t}\\
+                        &=\frac{1}{4\pi\varepsilon_0}\, \frac{q}{\vmod{\vect{r}}^2}\ \vect{v}\cdot\vhat{r} \tag{\eqref{eq: modulus derivative} \& \eqref{eq: Derivative of Voltage radius}}
+                    \end{align*}
+
+                    Since the unit vector of $\vect{r}$ (position) is included in this equation it should be clear that this is also a scalar field. It is generally true that differentiating a scalar field with respect to time also produces a scalar field, since you are essentially differentiating all of the values for every position with respect to time.
+
+                    The same general process of differentiating applies to all scalar fields, just differentiate using the chain rule until you're done.\\
+                    (Admittedly this is a relatively simple example since velocity is constant.)
+
+                \newpage
+                \subsubsection{The $\grad{}$ Operator}
+                    \label{subsubsec: The Grad Operator}
+
+                    It is more than reasonable to differentiate a field with respect to one of the spacial coordinates (e.g. $\frac{\partial}{\partial x}$) or even the radial coordinate (i.e. $\frac{\partial}{\partial r}:\,\, r = \vmod{\vect{r}}$).\\
+                    However, here we will talk about the \textbf{gradient} operator. The operator itself comes in multiple different forms, but only this one is relevant to scalar fields.
+                    
+                    The operator takes a scalar field and creates a new vector field, with the vector representing the gradient of the field strength across space.
+                    \begin{equation}
+                        \grad{} = \Matrix{\bfrac{\partial}{\partial x} \vspace{1em}\\\bfrac{\partial}{\partial y} \vspace{1em}\\\bfrac{\partial}{\partial z}} = \bfrac{\partial}{\partial x}\vhat{x} + \bfrac{\partial}{\partial y}\vhat{y} + \bfrac{\partial}{\partial z}\vhat{z}
+                        \label{eq: Grad Cartesian Form}
+                    \end{equation}
+
+                    The \textbf{gradient} operator can also be written in terms of other coordinate systems e.g. spherical coordinates $(r,\, \theta,\, \phi)$. For more coordinate systems see \url{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}.
+
+                    \begin{equation}
+                        \grad{} = \Matrix{\bfrac{\partial}{\partial r} \vspace{1em} \\ \bfrac{1}{r} \bfrac{\partial}{\partial \theta} \vspace{1em}\\ \bfrac{1}{r\sin\theta}\bfrac{\partial}{\partial \phi}} = \bfrac{\partial}{\partial r} \vhat{r} + \bfrac{1}{r} \bfrac{\partial}{\partial \theta} \vhat{\theta} + \bfrac{1}{r\sin\theta}\bfrac{\partial}{\partial \phi} \vhat{\phi}
+                        \label{eq: Grad Spherical Form}
+                    \end{equation}
+
+                    Just as an example, to use this operator, you fill in all of the partial operators with the field.
+                    \begin{equation}
+                        \grad{V} = \Matrix{\bfrac{\partial V}{\partial x} \vspace{1em}\\\bfrac{\partial V}{\partial y} \vspace{1em}\\\bfrac{\partial V}{\partial z}} = \bfrac{\partial V}{\partial x}\vhat{x} + \bfrac{\partial V}{\partial y}\vhat{y} + \bfrac{\partial V}{\partial z}\vhat{z}
+                    \end{equation}
+
+                    \vspace{2em}
+                    It is actually more practical in this case to apply the spherical coordinate version here. If we apply the form in \eqref{eq: Grad Spherical Form} to our $V$ field from \eqref{eq: Proton Voltage of r}, we get the following result.
+                    \begin{align*}
+                        \grad{V} &= \bfrac{\partial V}{\partial r} \vhat{r} + \bfrac{1}{r} \bfrac{\partial V}{\partial \theta} \vhat{\theta} + \bfrac{1}{r\sin\theta}\bfrac{\partial V}{\partial \phi} \vhat{\phi}\\
+                        &= \left(\bfrac{q}{4\pi\varepsilon_0}\right)\left[\bfrac{\partial}{\partial r}\left(\bfrac{1}{r}\right) \vhat{r} + \bfrac{1}{r} \bfrac{\partial }{\partial \theta}\left(\bfrac{1}{r}\right) \vhat{\theta} + \bfrac{1}{r\sin\theta}\bfrac{\partial }{\partial \phi}\left(\bfrac{1}{r}\right) \vhat{\phi}\right]
+                    \end{align*}
+
+                    The equation does not depend on $\theta$ or $\phi$, so those derivatives go to zero.
+
+                    \begin{align}
+                        \grad{V} &= \left(\bfrac{q}{4\pi\varepsilon_0}\right)\left[\bfrac{\partial}{\partial r}\left(\bfrac{1}{r}\right) \vhat{r} + \bfrac{1}{r} \cancelto{0}{\bfrac{\partial }{\partial \theta}\left(\bfrac{1}{r}\right)} \vhat{\theta} + \bfrac{1}{r\sin\theta}\cancelto{0}{\bfrac{\partial }{\partial \phi}\left(\bfrac{1}{r}\right)} \vhat{\phi}\right]\nonumber\\
+                        \grad{V} &= \left(\bfrac{q}{4\pi\varepsilon_0}\right) \left[\bfrac{-1}{r^2}\right]\vhat{r}\nonumber\\
+                        \grad{V} &=\bfrac{-1}{4\pi\varepsilon_0}\ \bfrac{q}{\vmod{\vect{r}}^2}\vhat{r} \label{eq: Gradient Field of Proton Voltage}
+                    \end{align}\\
+
+                    And, just like that, we have a new vector field as a function of $\vect{r}$.\\
+                    (It also isn't a coincidence that this looks a lot like the formula for the electric field around a charged particle)
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{1}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=20mm 25mm 20mm 20mm}
+                                {\import{images}{Gradient Field of Proton Voltage 3D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the vector field $\protect \grad{V}$ (green) described in \eqref{eq: Gradient Field of Proton Voltage} where the position of the proton is the origin. The original scalar field is shown as well.}
+                        \label{fig: Gradient Field of Proton Voltage 3D}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+
+
+
+
+
+            
+            \newpage
+ 
+            \subsection{Differentiating Vector Fields}
+                \label{subsec: Differentiating Vector Fields}
+
+                You'll notice that when we used the gradient operator on the scalar field, we differentiated it with respect to some variable and multiplied by the unit vector of that variable (\eqref{eq: Grad Cartesian Form}). However, when we differentiate a vector we still get a vector, so we can't just differentiate a vector field like this.
+                
+                Instead, there are special operators closely linked to the dot and cross products that we use to differentiate vector fields.
+
+
+
+                \subsubsection{The $\div{}$ Operator}
+                    \label{subsubsec: The Divergence Operator}
+
+                    The \textbf{divergence} operator tells you how much a vector field changes its strength along the direction that it points.
+
+                    The $\cdot$ in the operator should remind you of the dot product and that's because these are conceptually very similar. While the dot product asks \textit{how much of one vector is in the direction of the other?}, the divergence is asking \textit{how much does the field change when I travel in the direction it is pointing?}
+
+                    If we use the divergence operator on some field $\vect{\mathbb{F}}$, we get \eqref{eq: Divergence of a Field Cartesian}.
+                    
+                    Just like the dot product produces a scalar result, the divergence of a field is also a scalar result.
+
+                    \begin{equation}
+                        \div{\vect{\mathbb{F}}} = \Matrix{\bfrac{\partial}{\partial x} \vspace{1em}\\\bfrac{\partial}{\partial y} \vspace{1em}\\\bfrac{\partial}{\partial z}} \cdot \Matrix{\mathbb{F}_x\\[1em] \mathbb{F}_y\\[1em] \mathbb{F}_z}
+                        \label{eq: Divergence working}
+                    \end{equation}
+
+                    \begin{equation}
+                        \div{\vect{\mathbb{F}}} = \bfrac{\partial \mathbb{F}_x}{\partial x} + \bfrac{\partial \mathbb{F}_y}{\partial y} + \bfrac{\partial \mathbb{F}_z}{\partial z}
+                        \label{eq: Divergence of a Field Cartesian}
+                    \end{equation}
+
+                    Notice how, in \eqref{eq: Divergence working}, the result is the same as taking the dot product with the $\grad{}$ operator and the field vector? This is the literal application of the dot product analogy.
+
+                    The divergence operation also has versions in other coordinate systems. For more information see \url{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}.
+
+
+
+                    \vspace{2em}
+                    Below is an example of a divergent field given by \eqref{eq: Simple Divergent Field}
+
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \frac{\vect{r}}{\vmod{\vect{r}}^\frac{3}{2}}
+                        \label{eq: Simple Divergent Field}
+                    \end{equation}
+                    
+
+                    \newpage
+                    First we'll look at this field (\eqref{eq: Simple Divergent Field}) in $\Reals^2$:
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \Matrix{\bfrac{x}{\sqrt{x^2 + y^2}^\frac{3}{2}}\\[2em] \bfrac{y}{\sqrt{x^2 + y^2}^\frac{3}{2}}}, \hspace{2em} \vect{\mathbb{F}} \in \Reals^2
+                        \label{eq: Divergent 2D Field}
+                    \end{equation}
+
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.85}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=15mm 15mm 15mm 15mm}
+                                {\import{images}{Divergent Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{A visual representation of the field $\protect\vect{\mathbb{F}}$ described in \eqref{eq: Divergent 2D Field}}
+                        \label{fig: Divergent 2D Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+                    The divergence of this field is therefore given by \eqref{eq: Divergence of 2D Field}
+
+                    \begin{equation}
+                        \div{\vect{\mathbb{F}}} = \frac{\partial}{\partial x}\left(\bfrac{x}{(x^2 + y^2)^\frac{3}{4}}\right) + \frac{\partial}{\partial y}\left(\bfrac{y}{(x^2 + y^2)^\frac{3}{4}}\right)
+                        \label{eq: Divergence of 2D Field}
+                    \end{equation}
+
+                    The result is below. For the sake of space working isn't included but one can verify the result themselves (or check WolframAlpha because that is the strategic way).
+                    \begin{align}
+                        \div{\vect{\mathbb{F}}} &= \bfrac{2y^2 - x^2}{2(x^2 + y^2)^\frac{7}{4}} + \bfrac{2x^2 - y^2}{2(x^2 + y^2)^\frac{7}{4}} \nonumber\\[1em]
+                        \div{\vect{\mathbb{F}}} &= \bfrac{x^2 + y^2}{2(x^2 + y^2)^\frac{7}{4}} \nonumber\\[1em]
+                        \div{\vect{\mathbb{F}}} &= \bfrac{1}{2(x^2 + y^2)^\frac{3}{4}} \label{eq: Divergence of 2D Field example}
+                    \end{align}
+                    
+
+                    \vspace{2em}
+                    The scalar field produced by the divergence operation can be represented in multiple ways but it is most easily represented as a field of numbers (instead of a colour-based representation or a 3-axis representation).
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.9}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 10mm 10mm 9mm}
+                                {\import{images}{Divergence Field of 2D Divergent Field.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the scalar field $\protect \div{\vect{\mathbb{F}}}$ (numbers) described in \eqref{eq: Divergence of 2D Field example}\\The original field is represented on the $x-y$ axis in blue.}
+                        \label{fig: Divergence Field of 2D Divergent Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+
+
+                    \newpage
+                    Now we'll look at \eqref{eq: Simple Divergent Field} in $\Reals^3$:
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \Matrix{\bfrac{x}{\sqrt{x^2 + y^2 + z^2}^\frac{3}{2}}\\[2em] \bfrac{y}{\sqrt{x^2 + y^2 + z^2}^\frac{3}{2}}\\[2em]\bfrac{z}{\sqrt{x^2 + y^2 + z^2}^\frac{3}{2}}}, \hspace{2em} \vect{\mathbb{F}} \in \Reals^3
+                        \label{eq: Divergent 3D Field}
+                    \end{equation}
+
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{1}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 20mm 10mm 10mm}
+                                {\import{images}{Divergent Field 3D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{A visual representation of the field $\protect\vect{\mathbb{F}}$ described in \eqref{eq: Divergent 3D Field}}
+                        \label{fig: Divergent 3D Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+
+                    The divergence of this field is given by \eqref{eq: Divergence of 3D Field}
+                    \begin{equation}
+                        \div{\vect{\mathbb{F}}} = \frac{\partial}{\partial x}\left(\bfrac{x}{(x^2 + y^2 + z^2)^\frac{3}{4}}\right) + \frac{\partial}{\partial y}\left(\bfrac{y}{(x^2 + y^2 + z^2)^\frac{3}{4}}\right) + \frac{\partial}{\partial z}\left(\bfrac{z}{(x^2 + y^2 + z^2)^\frac{3}{4}}\right)
+                        \label{eq: Divergence of 3D Field}
+                    \end{equation}
+
+                    \newpage
+                    As with before, we'll skip straight past the differentiation, though the working is reasonably straightforward if you want to have a go.
+
+                    \begin{align}
+                        \div{\vect{\mathbb{F}}} &= \bfrac{2(y^2 + z^2) - x^2}{2(x^2 + y^2 +z^2)^\frac{7}{4}} + \bfrac{2(x^2 + z^2) - y^2}{2(x^2 + y^2 +z^2)^\frac{7}{4}} + \bfrac{2(x^2 + y^2) - z^2}{2(x^2 + y^2 +z^2)^\frac{7}{4}} \nonumber\\[1em]
+                        \div{\vect{\mathbb{F}}} &= \bfrac{3x^2 + 3y^2 + 3z^2}{2(x^2 + y^2 +z^2)^\frac{7}{4}}\nonumber\\[1em]
+                        \div{\vect{\mathbb{F}}} &=\bfrac{3}{2(x^2 + y^2 +z^2)^\frac{3}{4}} \label{eq: Divergence of 3D Field example}
+                    \end{align}
+
+                    Notice how the results from \eqref{eq: Divergence of 2D Field example} and \eqref{eq: Divergence of 3D Field example} are actually different (one has a 1 on the numerator, one has a 3).
+                    What this means is that it is important to specify what dimension you are dealing with.
+
+        
+                    We can also represent the scalar field produced by \eqref{eq: Divergence of 3D Field example}, though one would not regularly do so (\figref{fig: Divergence Field of 3D Divergent Field}).
+
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{1.2}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=20mm 25mm 20mm 20mm}
+                                {\import{images}{Divergence Field of 3D Divergent Field.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the scalar field $\protect \div{\vect{\mathbb{F}}}$ described in \eqref{eq: Divergence of 3D Field example}  \\The original field $\vect{\mathbb{F}}$ is represented in blue.}
+                        \label{fig: Divergence Field of 3D Divergent Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+
+
+
+
+
+                \newpage
+
+                \subsubsection{The $\curl{}$ Operator}
+                    \label{subsubsec: The Curl Operator}
+
+                    The \textbf{curl} operator is slightly more difficult to understand than the divergence operator.
+
+                    One way one can understand the curl operator is that it asks \textit{how much does the field change when I move orthogonal to the direction of the field vector at a given point?}\\
+                    This is a somewhat useful way of thinking about it and can help to interpret some of the results that you will see about the curl operator. However, there are some possible alternatives.
+
+
+                    Let's start with a more fundamental understanding of the cross product. When you take the cross product of $\vect{v} \times \vect{u}$ you are saying \textit{if I start at $\vect{v}$, what vector is there that describes how much and in what direction I need to rotate such that I find $\vect{u}$?}
+                    The cross product then generates a vector which points normal to the plane of rotation and with a magnitude proportional to the sine of the angle that you need to rotate through.
+
+                    In a similar way, the curl operator ($\curl{\vect{\mathbb{F}}}$) asks \textit{can I generate a vector which describes the direction and magnitude of rotation an object placed in a force field represented by $\vect{\mathbb{F}}$ would experience?}
+
+                    The mathematical representation of $\curl{\vect{\mathbb{F}}}$ can be seen in \eqref{eq: Curl of a Field Cartesian}.
+
+
+                    \begin{equation}
+                        \curl{\vect{\mathbb{F}}} = \Matrix{\bfrac{\partial}{\partial x} \vspace{1em}\\\bfrac{\partial}{\partial y} \vspace{1em}\\\bfrac{\partial}{\partial z}} \times \Matrix{\mathbb{F}_x\\[1em] \mathbb{F}_y\\[1em] \mathbb{F}_z}
+                        \label{eq: Curl working}
+                    \end{equation}
+
+                    \begin{equation}
+                        \curl{\vect{\mathbb{F}}} = \Matrix{\bfrac{\partial \mathbb{F}_z}{\partial y} - \bfrac{\partial \mathbb{F}_y}{\partial z}\\[1em] \bfrac{\partial \mathbb{F}_x}{\partial z} - \bfrac{\partial \mathbb{F}_z}{\partial x}\\[1em] \bfrac{\partial \mathbb{F}_y}{\partial x} - \bfrac{\partial \mathbb{F}_x}{\partial y}} = \left(\bfrac{\partial \mathbb{F}_z}{\partial y} - \bfrac{\partial \mathbb{F}_y}{\partial z}\right)\vhat{x} + \left(\bfrac{\partial \mathbb{F}_x}{\partial z} - \bfrac{\partial \mathbb{F}_z}{\partial x}\right)\vhat{y} + \left(\bfrac{\partial \mathbb{F}_y}{\partial x} - \bfrac{\partial \mathbb{F}_x}{\partial y}\right)\vhat{z}
+                        \label{eq: Curl of a Field Cartesian}
+                    \end{equation}
+
+
+                    Sometimes, purely for ease of notation, the partial derivatives are shortened using subscripts.
+                    \begin{equation*}
+                        \curl{\vect{\mathbb{F}}} = \Matrix{\partial_y \mathbb{F}_z - \partial_z \mathbb{F}_y\\[1em] \partial_z \mathbb{F}_x - \partial_x \mathbb{F}_z\\[1em] \partial_x \mathbb{F}_y - \partial_y \mathbb{F}_x}
+                    \end{equation*}
+
+                    It is again worth noting, just as with the divergence operator, that there is a close similarity between taking the cross product of the $\grad{}$ vector and the field $\vect{\mathbb{F}}$, and the curl operation.
+
+                    The curl operation also has versions in other coordinate systems. For more information see \url{https://en.wikipedia.org/wiki/Del_in_cylindrical_and_spherical_coordinates}.
+
+
+                    \newpage
+                    Below is an example of a curling field. First we'll look at the field in a single 2D plane, then analyse it when we let it take up 3D space as well.
+
+                    In 2D the field equation is given by \eqref{eq: Curling Field 2D} and can be seen in \figref{fig: Curling 2D Field}
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \Matrix{\bfrac{-y}{(x^2 + y^2)^\frac{3}{4}}\\[1.5em] \bfrac{x}{(x^2 + y^2)^\frac{3}{4}}}, \hspace{2em} \vect{\mathbb{F}} \in \Reals^2
+                        \label{eq: Curling Field 2D}
+                    \end{equation}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.95}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 10mm 10mm 10mm}
+                                {\import{images}{Curling Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \vspace{-1em}
+                        \caption{A visual representation of the field $\protect\vect{\mathbb{F}}$ described in \eqref{eq: Curling Field 2D}}
+                        \label{fig: Curling 2D Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+                    We notice that as we move a small distance $\delta\vect{v}$ along each of the vectors, the vectors remain the same length but rotate by some small angle $\delta\theta$ anticlockwise. This is where the `curl' part of the name comes from.
+
+                    If we move orthogonal to the vectors (radially outwards) then we see the vectors reduce in strength. This is what was alluded to at the beginning of the section.
+
+
+                    \vspace{2em}
+                    We can calculate the curl of the field directly using the formula (\eqref{eq: Curl of Simple 2D Field}). However, we have to consider the world in $\Reals^3$, even though we defined the field in $\Reals^2$.
+
+                    \begin{equation}
+                        \curl{\vect{\mathbb{F}}} = \Matrix{0\\0\\\partial_x \left(\bfrac{x}{(x^2 + y^2)^\frac{3}{4}}\right) - \partial_y \left(\bfrac{-y}{(x^2 + y^2)^\frac{3}{4}}\right)}
+                        \label{eq: Curl of Simple 2D Field}
+                    \end{equation}
+
+                    \newpage
+                    As with before, we'll skip past the differentiation, though the working isn't too bad if you'd like to have a go.
+                    \begin{align}
+                        \curl{\vect{\mathbb{F}}} &= \Matrix{0\\0\\\left(\bfrac{2y^2 - x^2}{2(x^2 + y^2)^\frac{7}{4}}\right) - \left(\bfrac{y^2 - 2x^2}{2(x^2 + y^2)^\frac{7}{4}}\right)}\nonumber\\[1em]
+                        \curl{\vect{\mathbb{F}}} &= \Matrix{0\\[0.5em] 0\\[0.5em] \bfrac{(x^2 + y^2)}{(x^2 + y^2)^\frac{7}{4}}}\nonumber\\[1em]
+                        \curl{\vect{\mathbb{F}}} &= \Matrix{0\\[0.5em] 0\\[0.5em] \bfrac{1}{(x^2 + y^2)^\frac{3}{4}}} \label{eq: Curl Field of 2D Curling Field}
+                    \end{align}
+
+                    \vspace{2em}
+                    This is a new vector field which can be seen in \figref{fig: Curl Field of 2D Curling Field}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.8}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=150mm 70mm 130mm 60mm}
+                                {\import{images}{Curl Field of 2D Curling Field.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the vector field $\protect \curl{\vect{\mathbb{F}}}$ (blue) described in \eqref{eq: Curl Field of 2D Curling Field}\\The original field is represented on the $x-y$ axis in red.}
+                        \label{fig: Curl Field of 2D Curling Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+
+                    \newpage
+                    Now we'll look at the same field but in $\Reals^3$. Instead of being like the divergence example where we expand the field to depend on $z$, we're just going to let it exist in the $z$ dimension as well. (This has physical significance for electromagnetism).
+
+                    \figref{fig: Curling Field 3D} shows a visual representation of the field.
+
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \Matrix{\bfrac{-y}{(x^2 + y^2)^\frac{3}{4}}\\[1.5em] \bfrac{x}{(x^2 + y^2)^\frac{3}{4}}\\[1.5em] 0}, \hspace{2em} \vect{\mathbb{F}} \in \Reals^3
+                        \label{eq: Curling Field 3D}
+                    \end{equation}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.5}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=150mm 40mm 140mm 20mm}
+                                {\import{images}{Curling Field 3D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{A visual representation of the field $\protect\vect{\mathbb{F}}$ described in \eqref{eq: Curling Field 3D}}
+                        \label{fig: Curling Field 3D}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+
+                    It turns out that the curl of this field is exactly the same, except that the new curl field exists at all of the $z$ coordinates as well, not just on the $x-y$ plane.
+
+                    This can be seen in \figref{fig: Curl Field of 3D Curling Field}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.5}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=150mm 30mm 135mm 30mm}
+                                {\import{images}{Curl Field of 3D Curling Field.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the vector field (in $\Reals^3$) $\protect \curl{\vect{\mathbb{F}}}$ (blue) described in \\\eqref{eq: Curl Field of 2D Curling Field}.  The original field is represented in red.}
+                        \label{fig: Curl Field of 3D Curling Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{1em}
+
+
+                    There are other types of curling fields as well that are less intuitive.
+
+                    For example the field given by \eqref{eq: Weird Curling Field Equation} also has a non-zero curl, since as we move orthogonal to the field direction the strength changes.
+                    \begin{equation}
+                        \vect{\mathbb{F}} = \Matrix{y\\0}
+                        \label{eq: Weird Curling Field Equation}
+                    \end{equation}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.63}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 15mm 10mm 10mm}
+                                {\import{images}{Weird Curling Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{A visual representation of the field $\protect\vect{\mathbb{F}}$ described in \eqref{eq: Weird Curling Field Equation}\\This field doesn't appear to be curling, though it still has a non-zero curl field.}
+                        \label{fig: Weird Curling Field 2D}
+                    \end{figure}
+                    \FloatBarrier
+
+
+                    The curl field of this field is given by the \eqref{eq: Curl of Weird Field}
+                    \begin{align}
+                        \curl{\vect{\mathbb{F}}} &= \Matrix{0\\0\\\partial_x 0 - \partial_y y}\nonumber\\
+                        \curl{\vect{\mathbb{F}}} &= \Matrix{0\\0\\-1} \label{eq: Curl of Weird Field}
+                    \end{align}
+
+                    One might interpret this as representing the field of rotational axes that an object would have at each point if it had forces exerted on it as given by the field.
+
+                    Think of a log placed so that it is parallel to the $y$ axis. Because the force at the top is always stronger in the positive $x$ direction it will always tend to rotate clockwise. This angular velocity would have a unit vector of $-\vhat{z}$, the same as the curl field.
+
+                    \vspace{1em}
+                    The curl field is visually represented in \figref{fig: Curl Field of Weird Curling Field}. Notice that even when the field is 0 along the $x$ axis the curl is still constant.
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.6}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=150mm 60mm 135mm 50mm}
+                                {\import{images}{Curl Field of Weird Curling Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \captionsetup{singlelinecheck=off}
+                        \caption[.]{A visual representation of the vector field $\protect \curl{\vect{\mathbb{F}}}$ (blue) described in \\\eqref{eq: Curl of Weird Field}.  The original field is represented in purple.}
+                        \label{fig: Curl Field of Weird Curling Field}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace*{2em}
+\end{document}

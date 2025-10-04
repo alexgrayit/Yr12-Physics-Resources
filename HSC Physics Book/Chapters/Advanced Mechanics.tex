@@ -1,0 +1,758 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}  
+    \chapter{Advanced Mechanics}
+        \label{ch: Advanced Mechanics}
+        \thispagestyle{noheader}
+
+        Mechanics is the study of both Kinematics and Dynamics. Advanced Mechanics covers and extends upon the linear Kinematics and Dynamics covered in \secref{ch: Kinematics} and \secref{ch: Dynamics} as well as covering their rotational equivalents. Just like how Kinematics is the study of motion and Dynamics is the study of how that motion arises, rotational Kinematics is the study of rotational motion and rotational Dynamics is the study of how rotation arises.
+
+        \section{Base Units}
+            \label{sec: Base Units Kinematics}
+            \begin{table}[!h]
+                \noindent\begin{tabular}{@{} p{40mm} C{10mm} p{110mm}}
+                    Mass &($m$) &Kilogram (\si{\kilo\gram})\\[\tablegap]
+                    Distance &($s$) &Metres (\si{\metre})\\[\tablegap]
+                    Displacement &($\vect{s}$) &Metres (\si{\metre})\\[\tablegap]
+                    Time &($t$) &Seconds (\si{\second})\\[\tablegap]
+                    Speed &($v$) &Metres per Second (\si{\metre \per\second} \textbf{or} \si{\metre / \second})\\[\tablegap]
+                    Velocity &($\vect{v}$) &Metres per Second (\si{\metre \per\second} \textbf{or} \si{\metre / \second})\\[\tablegap]
+                    Acceleration &($\vect{a}$) &Metres per Second, per Second (\si{\metre \per\second\squared} \textbf{or} \si{\metre /\second /\second} \textbf{or} \si{\metre / \second\squared})\\[\tablegap]
+                    Force &($\vect{F}$) &Newtons (\si{\newton}) \textbf{or} (\si{\kilo\gram \metre \per\second\squared})\\[\tablegap]
+                    Angular Position &($\theta$) &Radians (\si{\radian})\\[\tablegap]
+                    Angular Speed &($\omega$) &Radians per Second (\si{\radian \per\second} \textbf{or} \si{\radian /\second})\\[\tablegap]
+                    Angular Velocity &($\vect{\omega}$) &Radians per Second (\si{\radian \per\second} \textbf{or} \si{\radian /\second})\\[\tablegap]
+                    Angular Acceleration &($\vect{\alpha}$) &Radians per Second, per Second (\si{\radian \per\second\squared} \textbf{or} \si{\radian / \second\squared})\\[\tablegap]
+                    Torque &($\vect{\tau}$) &Newton Metres (\si{\newton \metre})\\[\tablegap]
+                    Energy &($E$) &Joules (\si{\joule}) \textbf{or} (\si{\kilo\gram \metre\squared \per\second\squared})\\[\tablegap]
+                    Work &($W$) &Joules (\si{\joule}) \textbf{or} (\si{\newton \metre}) \textbf{or} (\si{\kilo\gram \metre\squared \per\second\squared})\\[\tablegap]
+                    Power &($P$) &Joules per second (\si{\joule \per\second}) \textbf{or} (\si{\kilo\gram \metre\squared \per\second\cubed})
+                \end{tabular}
+            \end{table}
+            
+
+
+        \section{Constants}
+            \label{sec: Constants Kinematics}
+
+            \begin{table}[!h]
+                \noindent\begin{tabular}{@{} p{80mm} C{10mm} p{50mm}}
+                    Gravitational acceleration at Earth's surface &($g$) &$9.8\ \si{\metre \per\second\squared}$\\[\tablegap]
+                    The Gravitational Constant &($G$) &$6.67 \times 10^{-11}\ \si{\newton \metre\squared \per\kilo\gram\squared}$\\[\tablegap]
+                    Mass of the Earth &($M_E$) &$6.0\times 10^{24}\ \si{\kilo\gram}$\\[\tablegap]
+                    Radius of the Earth &($r_E$) &$6.371\times 10^{6}\ \si{\metre}$
+                \end{tabular}
+            \end{table}
+            
+
+        \newpage
+        \section{Equations}
+            \label{sec: Equations Advanced Mechanics}
+            
+            \begin{fleqn}
+                \begin{align}
+                    \vect{p} = m\vect{v}
+                    \label{eq: Momentum Definition}
+                \end{align}
+
+                \eqexp{The linear momentum of an object with mass $m$ and velocity $\vect{v}$.}
+
+
+                \begin{align}
+                    \vect{F}_{net} = m \vect{a}
+                    \label{eq: Net Force - Advanced Mechanics}
+                \end{align}
+                
+                \eqexp{The net (total) force on an object with constant mass is equal to its mass mutlplied by its acceleration due to that force.}
+                
+
+                \begin{align}
+                    a_c &= \frac{v^2}{r}
+                    \label{eq: Centripetal Acceleration Magnitude}\\[-1em]
+                    \vect{a}_c &= -\frac{v^2}{r}\vhat{r}
+                    \label{eq: Centripetal Acceleration Vector Form}
+                \end{align}
+                
+                \eqexp{The magnitude and vector form of the acceleration on an object undergoing circular motion. This is known as centripetal acceleration since it always points inwards towards to axis of rotation.}
+
+                \begin{align}
+                    l = \theta r
+                \end{align}
+
+                \eqexp{The arc length travelled over an angle $\theta$ at a radius $r$.}
+
+
+
+                \begin{align}
+                    v_{_\perp} = \omega r
+                \end{align}
+
+                \eqexp{The tangential speed of a particle a distance $r$ from the rotation axis that is part of an object rotating with angular speed $\omega$. In this case $r$ represents the perpendicular radial length from the spin axis.}
+
+                \begin{align}
+                    \omega = 2\pi f
+                \end{align}
+
+                \eqexp{The angular speed is also given by $2\pi$ times the rotational frequency (e.g. 1 rotation per second $=$ $2\pi\ rad\,s^{-1}$).}
+
+
+
+                \begin{align}
+                    \vect{\tau} = \vect{r} \times \vect{F}
+                \end{align}
+
+                \eqexp{The torque induced by a force $\vect{F}$ acting at a position $\vect{r}$ relative to the centre of rotation. $\times$ represents the vector cross product.}
+
+
+                \begin{align}
+                    \vect{g} = -G\frac{m}{r^2}\vhat{r}
+                \end{align}
+
+                \eqexp{The gravitational acceleration that will be induced on a mass if placed at a radial position $\vect{r}$ from the centre of mass of the object with mass $m$.\\This is also known as the gravitational field of the mass $m$.}
+
+                \begin{align}
+                    \vect{F}_g = m\vect{g}
+                \end{align}
+
+                \eqexp{The general expression for the force induced on an object with mass $m$ by a gravitational field $g$.}
+
+
+                \begin{align}
+                    \vect{F}_g = -G\frac{m_1 m_2}{r^2}\vhat{r}
+                \end{align}
+
+                \eqexp{The gravitational force induced on an object with mass $m_1$ when its centre of mass is placed at a position such that the vector beginning at the centre of mass of the object with mass $m_2$ and ending at $m_1$ is $\vect{r}$.}
+
+
+                \begin{align}
+                    U_g = -G\frac{m_1 m_2}{r}
+                \end{align}
+
+                \eqexp{The gravitational potential energy of a mass $m_1$ when its centre of mass is a distance $r$ from the centre of mass of $m_2$.}
+
+                
+
+                \subsection{Non-Syllabus Equations}
+                    \label{subsec: Advanced Mechanics Non-Syllabus Equations}
+
+                    \begin{align}
+                        \vect{r}_{com} = \frac{\sum\limits_{n=1}^N \vect{r}_n m_n}{\sum\limits_{n=1}^N m_n}
+                        \label{eq: Centre of Mass Sum - Advanced Mechanics}
+                    \end{align}
+    
+                    \eqexp{The formula for the centre of mass of an object is the average of each of the positions of the small masses which make it up, weighted according to their mass.}
+
+
+                    \begin{align}
+                        \vect{r}_{com} = \bfrac{\int_0^M \vect{r} \ud m}{M}
+                    \end{align}
+
+                    \eqexp{The formula for the centre of mass of an object. This is just \eqref{eq: Centre of Mass Sum - Advanced Mechanics} for continuous mass distributions.}
+
+
+                    \begin{align}
+                        \vect{v} = \frac{d\vect{r}_{com}}{dt}
+                    \end{align}
+
+                    \eqexp{The linear velocity of an object is the time derivative of its centre of mass' position.}
+
+                    \begin{align}
+                        \vect{a} = \frac{d\vect{v}}{dt} = \frac{d^2 \vect{r}_{com}}{dt^2}
+                    \end{align}
+
+                    \eqexp{The linear acceleration of an object is the time derivative of its linear velocity.}
+
+                    \begin{align}
+                        \vect{F}_{net} = \frac{d\vect{p}}{dt}
+                        \label{eq: Derivative force definition}
+                    \end{align}
+
+                    \eqexp{The net force on an object gives the rate of change of its momentum. For a case where the mass is constant, this gives \eqref{eq: Net Force - Advanced Mechanics}}
+
+
+                    \begin{align}
+                        \vect{\omega} = \frac{\hvec{d\theta}}{dt}
+                    \end{align}
+
+                    \eqexp{The angular velocity is the time derivative of the angular position. Notably absolute angular displacement cannot be treated as a vector but infinitesimally small angular displacements can, so angular velocity is what is known as a pseudovector.}
+
+
+                    \begin{align}
+                        \vect{\alpha} = \frac{d\vect{\omega}}{dt}
+                    \end{align}
+
+                    \eqexp{The definition of angular acceleration as the rate of change of angular velocity.}
+
+
+                    \begin{align}
+                        \vect{v}_{rot} = \vect{\omega} \times \vect{r}
+                        \label{eq: Velocity due to rotation}
+                    \end{align}
+    
+                    \eqexp{The velocity due to rotation of a point on an object with angular velocity $\omega$ is given by the cross product of the angular velocity vector and the radius vector from the centre of rotation to the point $\vect{r}$.}
+
+
+                    \begin{align}
+                        \vect{a}_{\perp} = \vect{\alpha} \times \vect{r}
+                    \end{align}
+    
+                    \eqexp{The tangential acceleration on a point on an object which is undergoing angular acceleration $\vect{\alpha}$ and has a position vector relative to the centre of rotation $\vect{r}$. The $\times$ represents the vector cross product.}
+
+                    \newpage
+                    \begin{align}
+                        I = mr^2
+                    \end{align}
+    
+                    \eqexp{The moment of inertia of a single point mass with mass $m$ and radius from the axis of rotation $r$.}
+                    \vspace*{-0.5em}
+    
+                    \begin{align}
+                        I = \sum_{n=1}^N m_n {r_n}^2
+                    \end{align}
+    
+                    \eqexp{The total moment of inertia of a set of N point masses all rotating together about a given rotational axis.}
+                    \vspace*{-0.5em}
+
+                    \begin{align}
+                        I_z = \int_m (r_x^2 + r_y^2) \ud m
+                        \label{eq: Moment of Inertia}
+                    \end{align}
+
+                    \eqexp{The total Moment of Inertia of an object with a continuous mass distribution about the $z$ axis.}
+
+                    \begin{align}
+                        I_{xy} = \int_m r_x r_y \ud m
+                    \end{align}
+
+                    \eqexp{The Product of Inertia in the $xy$ plane (generalises to all other permutations of axes). Unlike the Moment of Inertia this can take on a negative value.\\It is also worth noting that the equation is symmetric, i.e. $I_{xy} = I_{yx}$.}
+
+                    \begin{align}
+                        \mtrx{I} = \Matrix{I_x & -I_{xy} & -I_{xz}\\[0.5em]
+                                            -I_{yx} & I_y & -I_{yz}\\[0.5em]
+                                            -I_{zx} & -I_{zy} & I_z}
+                        \label{eq: Inertia Tensor}
+                    \end{align}
+
+                    \eqexp{The Moment of Inertia matrix or tensor.}
+
+    
+                    \begin{align}
+                        &I' = I_{com} + Md^2\\[-1em]
+                        &\mtrx{I}' = \mtrx{I} + M[(D,\,D)] - 2M[(D,\,C)]
+                    \end{align}
+                    
+                    \eqexp{The Parallel Axis Theorem for both Moment of Inertia (special case) and the Inertia Tensor (generalisation). Allows for the recalculation of moment of inertia when moving the point of rotation a distance $d$ to a point $D$. $C$ is the location of the centre of mass.}
+                    
+
+                    \newpage
+                    
+
+                    \begin{align}
+                        \vect{L} = \vect{r} \times \vect{p}
+                        \label{eq: Angular Momentum - Momentum Definition}
+                    \end{align}
+
+                    \eqexp{The angular momentum of a single point mass with mass $m$ and position $r$. This equation is particularly strange as $r$ does not necessarily have to point from an axis of rotation, though it often does.}
+
+
+                    \begin{align}
+                        \vect{L} = \mtrx{I} \vect{\omega}
+                        \label{eq: Tensor Angular Momentum Definition}
+                    \end{align}
+
+                    \eqexp{The angular momentum of a mass with moment of inertia tensor $\mtrx{I}$ and angular velocity $\vect{\omega}$.}
+
+                    
+                    \begin{align}
+                        \vect{\tau}_{net} = \frac{d\vect{L}}{dt}
+                        \label{eq: Derivative definition of torque}
+                    \end{align}
+
+                    \eqexp{The derivative form of torque. This equation describes the net torque on an object but can also be used with \eqref{eq: Angular Momentum - Momentum Definition} to define the torque from a single force.}
+
+
+                    \begin{align}
+                        \vect{\tau} = \vect{r}\times\vect{F}
+                        \label{eq: Torque Force Equation}
+                    \end{align}
+
+                    \eqexp{The contribution to the total torque by a force $\vect{F}$.}
+
+
+                    \begin{align}
+                        \vect{\tau}_{net} = \mtrx{I} \vect{\alpha}
+                        \label{eq: Torque with constant I}
+                    \end{align}
+    
+                    \eqexp{The equation for net torque on an object with constant moment of inertia $I$. This equation has clear parallels to Newton's Second Law (\eqref{eq: Net Force - Advanced Mechanics})}
+
+                    
+            \end{fleqn}
+            
+
+            \newpage
+
+        \section{Circular Motion of a Single Point Mass}
+            \label{sec: Circular Motion}
+
+            A key concept within mechanics is that of circular motion. It is important to understand that circular motion is a very common phenomenon in physics, though it is still technically a special case.\\
+            The ideas discussed here \textbf{assume} that the object is undergoing circular motion, which requires that you know beforehand that, for some reason, this object must undergo circular motion.\\
+            For instance, an object on the end of a string will almost always undergo circular motion since the string cannot extend, therefore forcing the object to move in a circular path.
+
+            One cool thing is that it is also possible to show that an object is undergoing circular motion if certain conditions are met, but you have to be careful about when and where you assume circular motion.
+
+            \subsection{Derivation of Centripetal Acceleration}
+                \label{subsec: Derivation of Centripetal Acceleration}
+
+                When an object moves in a circle, the net acceleration on that object must be pointed towards the central axis of rotation and have a magnitude of $a_c = \frac{v^2}{r}$.\\
+                This acceleration might arise because of tension or the electric field but the acceleration must be this strength.\\
+                If the acceleration is greater than this then the object will tend towards the centre and if it is less then it will tend to fly outwards. Notably this would be non-circular motion, though it may still result in orbital motion in a different shape. An example would be the planets which orbit in ellipses since the acceleration is not exactly the correct magnitude.
+
+                To derive that the acceleration is pointed inwards and has magnitude $\frac{v^2}{r}$, we merely start with the assumption that an object moves in a circular path of fixed radius $r$.
+
+                There are multiple ways to derive that the acceleration must be of the form in \eqref{eq: Centripetal Acceleration Vector Form}, however some ways are more intuitive than others.\\
+                The less intuitive proofs are the most general and provide the most accurate derivations (such as \secref{subsubsec: Vector Derivation of Centripetal Acceleration}) but are also the most mathematically involved and tend to purely serve the purpose of giving a good result, rather than helping with understanding.
+                
+
+                \newpage
+                \subsubsection{Graphical Derivation}
+                    \label{subsubsec: Graphical Derivation of Centripetal Acceleration}
+
+                    \textit{This derivation is perhaps the most intuitive derivation hence its inclusion, however it must use the assumption that the speed is constant. Centripetal acceleration does not require this assumption in general but it shall be made here.}
+
+                    Over some small time interval $\delta t$ an object moves from a position $\vect{r}_1$ to position $\vect{r}_2$. At each of these positions the object has velocities $\vect{v}_1$ and $\vect{v}_2$. At every point the velocity vector is perpendicular to its associated position vector.\\
+                    Over this time a small angle $\delta \theta$ is traced out. (\figref{fig: Centripetal Acceleration Motion Diagram})
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.9}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 25mm 10mm 25mm}
+                                {\import{images}{Centripetal Acceleration Diagram 1.pgf}}
+                            \end{adjustbox}
+                        }
+                        \vspace{-5mm}
+                        \caption{Diagram showing the different positions and velocities of an object undergoing circular motion over some time span $\delta t$.}
+                        \label{fig: Centripetal Acceleration Motion Diagram}
+                    \end{figure}
+                    \FloatBarrier
+
+                    Now we can find the change in position and velocity over this time using trigonometry. To do this we shall assume that $\vmod{\vect{v}_1} = \vmod{\vect{v}_2}$ (i.e. the speed is constant).\\
+                    Also, since the velocity vector is always perpendicular to the radius, it rotates by the same angle. Therefore, since the angle between the two radius vectors is $\delta \theta$, the angle between the two velocity vectors must also be $\delta \theta$.
+
+                    One idea which gets a bit confusing for this is the assertion that, as we compress $\delta t$ towards $0$, the change in position gets super small and becomes perpendicular to both $\vect{r}_1$ and $\vect{r}_2$.\\
+                    This allows us to apply trigonometric ratios to the triangles created.
+                    \begin{align}
+                        \delta \theta + 2\phi &= 180^{\circ} \nonumber \\[-1em]
+                        \lim_{\delta t \to 0} \delta \theta = 0, \ & \ \lim_{\delta t \to 0} \phi = 90^{\circ} \nonumber
+                    \end{align}
+                    \vspace{-1.5em}
+                    \begin{figure}[!h]
+                        \centering
+                        \begin{subfigure}[t]{0.45\textwidth}
+                            \centering
+                            \scalebox{0.9}
+                            {
+                                %trims left, bottom, right, top
+                                \begin{adjustbox}{clip,trim=35mm 50mm 20mm 30mm}
+                                    {\import{images}{Centripetal Acceleration Position Triangle.pgf}}
+                                \end{adjustbox}
+                            }
+                        \end{subfigure}
+                        \hfill
+                        \begin{subfigure}[t]{0.45\textwidth}
+                            \centering
+                            \scalebox{0.9}
+                            {
+                                %trims left, bottom, right, top
+                                \begin{adjustbox}{clip,trim=35mm 45mm 15mm 40mm}
+                                    {\import{images}{Centripetal Acceleration Velocity Triangle.pgf}}
+                                \end{adjustbox}
+                            }
+                            
+                        \end{subfigure}
+                        \vspace{-5mm}
+                        \caption{Diagrams showing the relationship between the initial \& final positions and velocities to the change in each of these quantities.}
+                        \label{fig: Centripetal Triangle Diagrams}
+                    \end{figure}
+                    \FloatBarrier
+                    
+                    Taking the sine of $\delta \theta$ on each of the diagrams in \figref{fig: Centripetal Triangle Diagrams} gives \eqref{eq: Centripetal Position Sine Ratio} and \eqref{eq: Centripetal Velocity Sine Ratio}.
+                    \begin{align}
+                        \sin\delta \theta &= \frac{\vmod{\delta \vect{r}}}{\vmod{\vect{r}_1}} = \frac{\delta r}{r} \label{eq: Centripetal Position Sine Ratio}\\
+                        \sin\delta \theta &= \frac{\vmod{\delta \vect{v}}}{\vmod{\vect{v}_1}} = \frac{\delta v}{v} \label{eq: Centripetal Velocity Sine Ratio}
+                    \end{align}
+
+                    Now we have to set our variables correctly. So far we've dealt with small changes but now we want to take the limit as $\delta t$ tends towards 0.\\
+                    This re-establishes our variables as infinitesimal changes.
+
+                    \begin{center}
+                        \begin{tabularx}{\textwidth}{X X X c}
+                            {\centering $\displaystyle\lim_{\delta t \to 0} \delta t = dt$} & $\displaystyle\lim_{\delta t \to 0} \delta \theta = d\theta$ & $\displaystyle\lim_{\delta t \to 0} \delta r = dr$ & $\displaystyle\lim_{\delta t \to 0} \delta v = dv$
+                        \end{tabularx}
+                    \end{center}
+  
+                    Also, the sine approximation becomes valid.
+                    \begin{equation*}
+                        \lim_{x \to 0} \left(\sin x\right) = x \ \Longrightarrow \ \sin d\theta = d\theta
+                    \end{equation*}
+
+                    This gives a new set of equations and the final result of \eqref{eq: Centripetal Magnitude Derived}.
+                    \begin{equation*}
+                        d\theta = \frac{dr}{r} , \  \  d\theta = \frac{dv}{v}
+                    \end{equation*}
+                    \begin{center}
+                        \begin{tabular}{p{3cm} p{3cm} p{3cm}}
+                            \parbox{3cm}{\begin{align*}
+                                \frac{dv}{v} &= \frac{dr}{r} \\[-1em]
+                                dv &= dr\frac{v}{r} \\[-1em]
+                                \frac{dv}{dt} &= \frac{dr}{dt} \frac{v}{r} \\[-1em]
+                                a &= v\frac{v}{r}
+                            \end{align*}}
+                            &
+                            \parbox{3cm}{\begin{align*}
+                                & \\[-0.4em]
+                                & \\
+                                \frac{d\theta}{dt} &= \frac{dr}{dt} \frac{1}{r}\\[-1em]
+                                \omega &= \frac{v}{r}
+                            \end{align*}}
+                            &
+                            \parbox{3cm}{\begin{align*}
+                                & \\[-0.4em]
+                                & \\
+                                \frac{d\theta}{dt} &= \frac{dv}{dt} \frac{1}{v} \\[-1em]
+                                \omega &= \frac{a}{v}
+                            \end{align*}} \vfill
+                        \end{tabular}
+                    \end{center}
+                    
+
+                    \begin{equation}
+                        a_c = \frac{v^2}{r}
+                        \label{eq: Centripetal Magnitude Derived}
+                    \end{equation}
+
+                    We know that the acceleration must be pointed inwards because $\delta \vect{v}$ is perpendicular to $\vect{v}$ (as is $\vect{r}$), so the acceleration (which is in the same direction as $\delta \vect{v}$) must be inwards along the radius. From \figref{fig: Centripetal Triangle Diagrams} we can see that $\delta \vect{v}$ is 90\si{\degree} anticlockwise from $\vect{v}_1$, putting it in the opposite direction as $\vect{r}_1$ (i.e. inwards).
+
+                \newpage
+                \subsubsection{Vector Derivation}
+                    \label{subsubsec: Vector Derivation of Centripetal Acceleration}
+
+                    Let's start with the assumption that an object has a position vector $\vect{r}$ where $\vmod{\vect{r}} = r$, and $r$ is constant (\eqref{eq: Constant Radius Definition}).\\
+                    Let the velocity of the object be $\vect{v}$.
+                    \begin{equation}
+                        \frac{dr}{dt} = 0
+                        \label{eq: Constant Radius Definition}
+                    \end{equation}
+
+                    \begin{equation}
+                        \frac{d\vect{r}}{dt} = \vect{v}, \hspace{1em} \vmod{\vect{v}}  = v
+                    \end{equation}
+
+                    Applying \eqref{eq: modulus derivative} to \eqref{eq: Constant Radius Definition} we get \eqref{eq: Position Derivative Working}.
+                    \begin{equation}
+                        \vect{v} \cdot \vhat{r} = 0
+                        \label{eq: Position Derivative Working}
+                    \end{equation}
+
+                    Taking the derivative of both sides then rearranging we get the following.
+
+                    \begin{align}
+                        \frac{d}{dt}\left(\vect{v} \cdot \vhat{r}\right) &= 0 \nonumber \hspace{2em}\\[-0.5em]
+                        \vect{a} \cdot \vhat{r} + \vect{v} \cdot \frac{d\vhat{r}}{dt} &= 0\nonumber \tag{\text{from \eqref{eq: dot product differential}}}\\[-0.5em]
+                        \vect{a} \cdot \vhat{r} + \vect{v} \cdot \left(\bfrac{\vect{v}r - \vhat{r}\left(\vect{v}\cdot\vhat{r}\right)}{r^2}\right) &= 0\nonumber \tag{\text{from \eqref{eq: unit vector derivative - projection}}}\\[-0.5em]
+                        \vect{a} \cdot \vhat{r} + \bfrac{\vmod{\vect{v}}^2 r - \left(\vect{v}\cdot\vhat{r}\right)^2}{r^2} &= 0\nonumber \\[-0.5em]
+                        \vect{a} \cdot \vhat{r} + \bfrac{v^2 r - \cancelto{0}{\left(\vect{v}\cdot\vhat{r}\right)^2}}{r^2} &= 0 \nonumber \tag{\text{from \eqref{eq: Position Derivative Working}}}
+                    \end{align}
+
+                    \begin{equation}
+                        \vect{a} \cdot \vhat{r} = -\frac{v^2}{r} \label{eq: centripetal radial acceleration dot product}
+                    \end{equation}
+                    
+                    \eqref{eq: centripetal radial acceleration dot product} is telling us that, for an object moving in a circle, the total acceleration which is parallel to the radius must have a magnitude of $\frac{v^2}{r}$.\\
+                    Since the dot product is negative it tells us that the acceleration must always be pointed opposite to the radius vector.
+
+                    This is an important result because it's specifically telling us there could be other accelerations which are perpendicular to the radius which act to change the velocity, and that is completely fine.\\
+                    Multiplying both sides by $\vhat{r}$ can allow us to re-assign the acceleration a direction and gives us the final result in \eqref{eq: radial version of vector centripetal acceleration} where $\vect{a}_r$ represents all acceleration components parallel to $\vect{r}$.
+                    \begin{equation}
+                        \vect{a}_r = -\frac{v^2}{r}\vhat{r}
+                        \label{eq: radial version of vector centripetal acceleration}
+                    \end{equation}
+
+
+        \newpage
+
+        \section{An In-depth Exploration of Newton's Laws}
+
+            \subsection{Newton's 1\super{st} Law}
+
+                ``\textit{An object will retain its state of motion unless acted upon by an unequal force.}''
+
+                This statement can't really be examined properly without the invocation of his 2\super{nd} law\\$\vect{a} = \frac{\vect{F}_{net}}{m}$.
+
+                What this statement is really saying is that, because $\vect{a} = \frac{d\vect{v}}{dt}$, if there is no acceleration then the velocity will not change with time (this is really a definitional thing rather than a `Law'). And, because accelerations result from forces, there must be a non-zero net force (unequal forces) on the object.
+
+            \subsection{Newton's 2\super{nd} Law}
+
+                \begin{equation*}
+                    \vect{F}_{net} = m\vect{a}
+                    \tag{\eqnum{eq: Net Force - Advanced Mechanics}}
+                \end{equation*}
+
+                The derivation for this formula for a single object or particle is based on the derivative definition of force (\eqref{eq: Derivative force definition})
+
+                \begin{equation*}
+                    \vect{F}_{net} = \frac{d\vect{p}}{dt}
+                    \tag{\eqnum{eq: Derivative force definition}}
+                \end{equation*}
+
+                Using $\vect{p} = m\vect{v}$ (\eqref{eq: Momentum Definition}) and by assuming the mass to be constant we arrive at Newton's result.
+
+                However, this definition actually applies to any set of particles (whether part of a rigid solid or not), so long as the velocity used in the momentum definition is the velocity of the centre of mass $\vect{v}_{com}$ and the mass is to total mass of the particles $M$ (each with constant mass).
+
+                Recall the formula for the centre of mass of a system of $n$ particles.
+
+                \begin{equation*}
+                    \vect{r}_{com} = \frac{\sum\limits_{n=1}^N \vect{r}_n m_n}{\sum\limits_{n=1}^N m_n}
+                    \tag{\eqnum{eq: Centre of Mass Sum - Advanced Mechanics}}
+                \end{equation*}
+
+                \begin{equation*}
+                    M = \sum\limits_{n=1}^N m_n
+                \end{equation*}
+
+                Taking the time derivative of \eqref{eq: Centre of Mass Sum - Advanced Mechanics} we get the formula for the velocity of the centre of mass.
+
+                \begin{equation*}
+                    \vect{v}_{com} = \frac{\sum\limits_{n=1}^N \vect{v}_n m_n}{M}
+                \end{equation*}
+
+                Here is the first important result, the total momentum of the system (the sum of all momentums from each of the small constituent particles) is equal to the total mass multiplied by the velocity of the centre of mass.
+
+                \begin{equation}
+                    \vect{p}_{total} = \sum\limits_{n=1}^N \vect{v}_n m_n = M\vect{v}_{com}
+                \end{equation}
+
+                So, it turns out that using the centre of mass and total mass is equivalent to just mass and velocity for a system of masses.
+
+                The total force on the system is just the sum of all forces on each particle which is just the time derivative of the total momentum.
+
+                \begin{align*}
+                    \vect{F}_{net} &= \frac{d\vect{p}_{total}}{dt}\\
+                    &= \frac{d}{dt}\left(\sum\limits_{n=1}^N \vect{v}_n m_n\right)\\
+                    &= \sum\limits_{n=1}^N \vect{a}_n m_n\\
+                    &= M\frac{d\vect{v}_{com}}{dt}\\
+                    &= M\vect{a}_{com}
+                \end{align*}
+
+                So here we see that Newton's law is generalisable to any system of constant mass particles, so long as the position of the object is given by its centre of mass and its mass given by the total mass.\\
+                Perhaps a surprising part of this result is that the system need not be made of bound particles (i.e. the equation applies to systems of particles like gases).
+
+            \newpage
+            \subsection{Newton's 3\super{rd} Law}
+                
+                ``\textit{For every action (force) there is an equal and opposite reaction.}''
+
+                This is quite a strange law because it is really purely by luck that Newton was correct here. 
+
+                So, as it turns out, the forces between two particles due to the Electric and Magnetic forces are symmetric (i.e. two particles attract/repel each other with the same force regardless of charge). This is important because these are the most dominant forces in terms of macroscopic interactions.
+
+                \begin{align*}
+                    \vect{F}_E &= \frac{1}{4\pi\varepsilon_0}\frac{q_1 q_2}{r^2}\vhat{r}  &  \vect{F}_B &= \frac{\mu_0}{4\pi}\frac{q_1 q_2 (\vect{v_2} \times (\vect{v_1} \times \vect{r}_{12}))}{r^3}
+                \end{align*}
+
+                \eqexp{The non-relativistic formulas for the forces between two charged particles.}
+
+
+                The same is true for gravity (yes, you apply the same force on the Earth due to your gravity as it applies to you, just the acceleration on the Earth is much less because it is so big).
+
+                \begin{equation*}
+                    \vect{F}_G = -G\frac{m_1 m_2}{r^2}\vhat{r}
+                \end{equation*}
+
+                Again, for both of the nuclear forces it is also true regardless of the differing properties of the two particles (though this one is a little harder to show).
+
+                As a result, whenever there is a force on one object, there must be an equal and opposite force on the other object.\\
+                But, since the forces Newton was observing were primarily gravitational and electrostatic, it was quite possible that when we discovered the nuclear forces that they would have been non-symmetric, rendering Newton's statement false. As such it is really purely blind luck that Newton's 3\super{rd} Law is still considered true.
+
+        \newpage
+
+        \section{Rotation of a Rigid Body}
+            \label{sec: Rotation of a Rigid Body}
+
+            While rotation of a single point mass is a key concept in physics, most real world examples require that we acknowledge the fact that an object is really made of many point masses at different locations.
+
+            \subsection{Defining \& Deriving Some Key Equations}
+                \label{subsec: Deriving Some Key Equations}
+
+                \subsubsection{Angular Velocity}
+
+                    Angular velocity $(\vect{\omega})$ is a vector\footnote{Technically it is a pseudovector for a multitude of complex reasons that don't really matter. One of which is because it does not describe one motion but the collective motion of a set of particles.} which points along the axis of rotation of an object such that if you were to point your right thumb in the direction of the vector, your other fingers curl in the direction of rotation.
+
+                    While not often explicitly said, angular velocity is always considering motion ``about a point'' $P = (P_x,\, P_y,\, P_z)$ -- meaning it is different if considering motion about two different points.
+
+                    For a point mass with displacement from a point $P$ $\vect{r}$ and angular velocity about $P$ of $\vect{\omega}$ we define its velocity due to rotation to be given by \eqref{eq: Velocity due to rotation}.
+
+                    \begin{equation}
+                        \vect{v}_{rot} = \vect{\omega} \times \vect{r}
+                        \tag{\eqnum{eq: Velocity due to rotation}}
+                    \end{equation}
+
+                \subsubsection{Angular Momentum}
+                    
+                    Angular momentum $(\vect{L})$ can seem like an arbitrary concept at first but it has some very useful properties. We begin by defining angular momentum as being about a point $P = (P_x,\, P_y,\, P_z)$.\\
+                    The angular momentum for a point mass about point $P$ is given by
+
+                    \begin{equation}
+                        \vect{L} = \vect{r} \times \vect{p}   \tag{\eqnum{eq: Angular Momentum - Momentum Definition}}
+                    \end{equation}
+
+                    Where $\vect{p}$ is the momentum of the point mass and $\vect{r}$ is the displacement vector from $P$ to the location of the mass.
+
+                    For an infinitesimally small point mass this equation can be written as in \eqref{eq: Integral definition of Angular Momentum}.
+
+                    \begin{equation}
+                        \vect{L} = \int_m \vect{r} \times d\vect{p} = \int_m \vect{r} \times \vect{v} \ud m
+                        \label{eq: Integral definition of Angular Momentum}
+                    \end{equation}
+
+                \subsubsection{Moment of Inertia \& The Inertia Tensor}
+
+                    Moment of Inertia is a somewhat contrived concept in that it is more mathematical than it is intuitive. As such, seeing where it comes from is perhaps easier than trying to justify its existence conceptually (though there is a conceptual way of understanding it which will be covered in a later section).
+
+                    Using \eqref{eq: Velocity due to rotation} and the identity $\vect{A} \times (\vect{B} \times \vect{C}) = (\vect{A}\cdot\vect{C})\vect{B} - (\vect{A}\cdot\vect{B})\vect{C}$, \eqref{eq: Integral definition of Angular Momentum} can be re-written
+
+                    \begin{equation}
+                        \vect{L} = \int_m \vect{r} \times (\vect{\omega} \times \vect{r}) \ud m = \int_m \left(\vmod{\vect{r}}^2\vect{\omega} - \left(\vect{r}\cdot\vect{\omega}\right)\vect{r} \right)\ud m
+                        \label{eq: Angular Momentum expanded integral}
+                    \end{equation}
+
+                    Further expanding \eqref{eq: Angular Momentum expanded integral} into its separate components can then allow for the derivation of the inertia tensor.\\
+                    It is worth making it explicit that here is where we impose the rigid body restriction, which forces $\vect{\omega}$ as constant across the entire mass, allowing it to be factored out of any integrals as a constant (with respect to the location / mass).
+
+                    
+                    \begin{align*}
+                        \vect{L} &= \int_m \left(\vmod{\vect{r}}^2\vect{\omega} - \left(\vect{r}\cdot\vect{\omega}\right)\vect{r} \right)\ud m\\
+                        &= \Matrix{{\bint_m \left(\omega_x \left(r_x^2 + r_y^2 + r_z^2 \right) - \left(r_x^2 \omega_x + r_x r_y \omega_y + r_x r_z \omega_z\right)\right) \ud m}\\[1em]
+                        {\bint_m \left(\omega_y \left(r_x^2 + r_y^2 + r_z^2 \right) - \left(r_y r_x \omega_x + r_y^2 \omega_y + r_y r_z \omega_z\right)\right) \ud m}\\[1em]
+                        {\bint_m \left(\omega_z \left(r_x^2 + r_y^2 + r_z^2 \right) - \left(r_z r_x \omega_x + r_z r_y \omega_y + r_z^2 \omega_z\right)\right) \ud m}}\\
+                        &= \Matrix{{\bint_m \left(\omega_x \left(r_y^2 + r_z^2 \right) - \left(r_x r_y \omega_y + r_x r_z \omega_z\right)\right) \ud m}\\[1em]
+                        {\bint_m \left(\omega_y \left(r_x^2 + r_z^2 \right) - \left(r_y r_x \omega_x + r_y r_z \omega_z\right)\right) \ud m}\\[1em]
+                        {\bint_m \left(\omega_z \left(r_x^2 + r_y^2\right) - \left(r_z r_x \omega_x + r_z r_y \omega_y\right)\right) \ud m}}\\
+                        &= \Matrix{\omega_x \bint_m (r_y^2 + r_z^2) \ud m - \omega_y \bint_m r_x r_y \ud m - \omega_z \bint_m r_x r_z \ud m\\[1em]
+                        -\omega_x \bint_m r_y r_x \ud m + \omega_y \bint_m (r_x^2 + r_z^2) \ud m - \omega_z \bint_m r_y r_z \ud m\\[1em]
+                        -\omega_x \bint_m r_z r_x \ud m - \omega_y \bint_m r_z r_y \ud m + \omega_z \bint_m (r_x^2 + r_y^2) \ud m}\\
+                        &= \Matrix{\left(\bint_m (r_y^2 + r_z^2) \ud m\right)& \left(-\bint_m r_x r_y \ud m\right) & \left(-\bint_m r_x r_z \ud m\right)\\[1em]
+                        \left(-\bint_m r_y r_x \ud m\right) & \left(\bint_m (r_x^2 + r_z^2) \ud m\right) & \left(-\bint_m r_y r_z \ud m\right)\\[1em]
+                        \left(-\bint_m r_z r_x \ud m\right) & \left(-\bint_m r_z r_y \ud m\right) & \left(\bint_m (r_x^2 + r_y^2) \ud m\right)} \Matrix{\omega_x\\[1.5em]
+                        \omega_y\\[1.5em]
+                        \omega_z}
+                    \end{align*}
+
+                    The above uses matrix multiplication to factor out the angular velocity vector, see \secref{subsec: Matrix Multiplication} for further clarification on the process of matrix multiplication.
+
+                    We then simply define the matrix (\eqref{eq: Inertia Tensor Expanded Definition}) as the inertia tensor or inertia matrix.
+
+                    \begin{equation}
+                        \mtrx{I} \deq \Matrix{\left(\bint_m (r_y^2 + r_z^2) \ud m\right)& \left(-\bint_m r_x r_y \ud m\right) & \left(-\bint_m r_x r_z \ud m\right)\\[1em]
+                        \left(-\bint_m r_y r_x \ud m\right) & \left(\bint_m (r_x^2 + r_z^2) \ud m\right) & \left(-\bint_m r_y r_z \ud m\right)\\[1em]
+                        \left(-\bint_m r_z r_x \ud m\right) & \left(-\bint_m r_z r_y \ud m\right) & \left(\bint_m (r_x^2 + r_y^2) \ud m\right)}
+                        \label{eq: Inertia Tensor Expanded Definition}
+                    \end{equation}
+
+                    By using the below definitions for the moment of inertia and product of inertia the matrix can be re-written using simpler notation.
+
+                    \textit{Moments of Inertia}
+                    \begin{align*}
+                        I_x &= \int_m (r_y^2 + r_z^2)\ud m  &    I_y &= \int_m (r_x^2 + r_z^2)\ud m &   I_z &= \int_m (r_x^2 + r_y^2)\ud m
+                    \end{align*}
+
+                    \textit{Products of Inertia}
+                    \begin{align*}
+                        I_{xy} &= \int_m r_x r_y \ud m    &   I_{xz} &= \int_m r_x r_z \ud m\\[-0.5em]
+                        I_{yx} &= \int_m r_y r_x \ud m    &   I_{yz} &= \int_m r_y r_z \ud m\\[-0.5em]
+                        I_{zx} &= \int_m r_z r_x \ud m    &   I_{zy} &= \int_m r_z r_y \ud m
+                    \end{align*}
+
+
+                    \begin{equation*}
+                        \mtrx{I} = \Matrix{I_x & -I_{xy} & -I_{xz}\\[0.5em]
+                                            -I_{yx} & I_y & -I_{yz}\\[0.5em]
+                                            -I_{zx} & -I_{zy} & I_z}
+                        \tag{\eqnum{eq: Inertia Tensor}}
+                    \end{equation*}
+
+
+                    This finally allows us to re-write the definition of angular momentum for any rigid body (\eqref{eq: Tensor Angular Momentum Definition}).
+
+                    \begin{equation*}
+                        \vect{L} = \mtrx{I}\vect{\omega}
+                        \tag{\eqnum{eq: Tensor Angular Momentum Definition}}
+                    \end{equation*}
+
+
+                    In many cases for an object rotating about its centre of mass (and even some other cases) the products of inertia are 0 (\eqref{eq: Diagonal Inertia Tensor}), simplifying the matrix to a diagonal matrix, making it much simpler to invert (\eqref{eq: Inverse Diagonal Inertia Tensor}).
+
+                    \begin{equation}
+                        \mtrx{I} = \Matrix{I_x & 0 & 0\\[0.5em]
+                                            0 & I_y & 0\\[0.5em]
+                                            0 & 0 & I_z}
+                        \label{eq: Diagonal Inertia Tensor}
+                    \end{equation}
+
+                    \begin{equation}
+                        \mtrx{I}^{-1} = \Matrix{\frac{1}{I_x} & 0 & 0\\[0.5em]
+                                            0 & \frac{1}{I_y} & 0\\[0.5em]
+                                            0 & 0 & \frac{1}{I_z}}
+                        \label{eq: Inverse Diagonal Inertia Tensor}
+                    \end{equation}
+
+
+
+                \newpage
+                
+                \subsubsection{Torque}
+
+                    The formal definition of torque is as the time derivative of angular momentum (\eqref{eq: Derivative definition of torque}). 
+
+                    \begin{equation*}
+                        \vect{\tau}_{net} = \frac{d\vect{L}}{dt}
+                        \tag{\eqnum{eq: Derivative definition of torque}}
+                    \end{equation*}
+
+                    For a rigid body with a constant inertia matrix, the torque is given by \eqref{eq: Torque with constant I}.
+
+                    \begin{align*}
+                        \vect{\tau}_{net} &= \frac{d}{dt}\left(\mtrx{I} \vect{\omega}\right)\\
+                        \vect{\tau}_{net} &= \mtrx{I} \frac{d}{dt}\left(\vect{\omega}\right)\\
+                        \vect{\tau}_{net} &= \mtrx{I} \vect{\alpha}
+                        \tag{\eqnum{eq: Torque with constant I}}
+                    \end{align*}
+
+                    In linear motion we have $\vect{F}_{net} = m\vect{a}$, where $m$ describes how hard the object is to push. Torque is analogous to force, in that $\mtrx{I}$ describes how hard the object is to rotate in each direction and $\vect{\alpha}$ describes the acceleration of rotational motion.
+
+                    There is one other definition which is required for torque which is based on the original definition for angular momentum of a particle.
+
+                    \begin{align*}
+                        \vect{L} &= \vect{r}\times\vect{p}\\
+                        \frac{d}{dt}\vect{L} &= \frac{d}{dt}(\vect{r}\times\vect{p})\\
+                        \vect{\tau} &= \vect{v}\times\vect{p} + \vect{r}\times\vect{F}
+                    \end{align*}
+
+                    Here we use $\vect{p}=m\vect{v}$ and $\vect{v}\times\vect{v} = \vect{0}$ to get the final relationship (\eqref{eq: Torque Force Equation}).
+
+                    \begin{equation*}
+                        \vect{\tau} = \vect{r}\times\vect{F}
+                        \tag{\eqnum{eq: Torque Force Equation}}
+                    \end{equation*}
+
+                    This equation describes the contribution to the net torque by a force $\vect{F}$. The net torque is then just the vector sum of all of these contributions.
+
+                    \begin{equation}
+                        \vect{\tau}_{net} = \sum \vect{r}\times\vect{F}
+                    \end{equation}
+
+        \newpage
+
+        
+\end{document}

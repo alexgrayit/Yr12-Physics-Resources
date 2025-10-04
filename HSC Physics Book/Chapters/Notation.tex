@@ -1,0 +1,117 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    \chapter{Notation}
+        \label{ch: Notation}
+        \thispagestyle{noheader}
+
+        \section{Mathematical Notation}
+            \label{sec: Mathematical Notation}
+
+            \subsection{Subscripts}
+                \label{subsec: Subscript Notation}
+
+                In maths subscripts are (most of the time) used to give extra information about the number it is below. For example, adding a $0$ below an $I$ in a circuits problem i.e. $I_0$ often represents the fact that it is the current $I$ at time $t=0$.
+
+
+            \subsection{Limits}
+                \label{subsec: Limits}
+    
+                Limits are a bit weird in maths because they can be thought of in their purest sense: \\ \textit{``what happens to this number $a$ as another number $b$ gets ever closer to some value?''}.\\
+                But they can also be thought of in a very pure and definitive way using what is called the epsilon-delta definition.
+    
+                The epsilon-delta definition of limits is super tedious and really not helpful for understanding limits, so it won't be discussed here.\\Instead we'll cover the difference between a pure limit, a limit from the right and a limit from the left.
+    
+                \subsubsection{A Standard Limit}
+                    \label{subsubsec: A Standard Limit}
+    
+                    Let's say that there is some function $f(x)$ where, as $x$ gets ever closer to some number $a$, $f$ gets ever closer to $L$. We would say that as $x$ approaches $a$ that $f(x)$ approaches $L$.
+                    \begin{equation}
+                        \lim_{x\to a} f(x) = L
+                    \end{equation}
+                    However, the crucial rule with this is that this must be true no matter what side you approach $a$ from. If it is true from one side but not the other then the limit does not exist.
+    
+                    As an example let's say that our function is given by \eqref{eq: Sine Limit Example}.
+                    \begin{equation}
+                        f(x) = \frac{\sin(x)}{x}
+                        \label{eq: Sine Limit Example}
+                    \end{equation} 
+                    This function is continuous and smooth for all values of $x$ except for $x=0$ where there is a divide by $0$ error.\\
+                    But, as $x$ approaches $0$, $f(x)$ approaches $1$ (\figref{fig: Sine Limit Example Diagram}), and this is true from either side of $x=0$.
+    
+                    \begin{figure}[!h]
+                        \centering
+                        \scalebox{0.7}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=10mm 40mm 10mm 40mm}
+                                {\import{images}{Sine Hole Diagram.pgf}}
+                            \end{adjustbox}
+                        }
+    
+                        \caption{A graph of $y = \bfrac{\sin x}{x}$.}
+                        \label{fig: Sine Limit Example Diagram}
+                    \end{figure}
+                    \FloatBarrier
+    
+                    As an example of when a limit doesn't exist let's look at the function in \eqref{eq: Discontinuous Limit Example}
+                    \begin{equation}
+                        f(x) = \left\{\begin{array}{cr}
+                            -x^2 + 2 &\hspace{1em} \text{if } x < 0\\[1em]
+                            x^2 - 2 &\hspace{1em} \text{if } x \geq 0
+                        \end{array}\right.
+                        \label{eq: Discontinuous Limit Example}
+                    \end{equation}
+                    
+                    If we tried to find $\lim\limits_{x\to 0} f(x)$ we would not be able to since it is different depending on what side we come from.\\
+                    This is more obvious in \figref{fig: Discontinuous Limit Example Diagram}.
+    
+                    \begin{figure}[!h]
+                        \centering
+                        \scalebox{0.7}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=15mm 10mm 15mm 10mm}
+                                {\import{images}{Discontinuous Limit Example.pgf}}
+                            \end{adjustbox}
+                        }
+    
+                        \caption{A graph of \eqref{eq: Discontinuous Limit Example}.}
+                        \label{fig: Discontinuous Limit Example Diagram}
+                    \end{figure}
+    
+                
+                \subsubsection{Limits from the Left and Right}
+                    \label{subsubsec: Limits from the Left and Right}
+    
+                    Taking a limit from the left or the right is exactly what it sounds like. Instead of asking what does the function do as we approach this point, we are specifically asking what does it do as we approach it from a given side.
+    
+                    Taking the limit from the left is denoted with a superscript `$-$' above the number (\eqref{eq: Left Limit}) and a limit from the right is denoted with a superscript `$+$' above the number (\eqref{eq: Right Limit})
+                    \begin{equation}
+                        \lim_{x\to a^-} f(x)
+                        \label{eq: Left Limit}
+                    \end{equation}
+                    \begin{equation}
+                        \lim_{x\to a^+} f(x)
+                        \label{eq: Right Limit}
+                    \end{equation}
+    
+                    In the case of the function in \eqref{eq: Discontinuous Limit Example} and \figref{fig: Discontinuous Limit Example Diagram} we get the following limits.
+                    \begin{align*}
+                        \lim_{x\to 0^-} f(x) &= 2\\[-1em]
+                        \lim_{x\to 0^+} f(x) &= -2
+                    \end{align*}
+
+
+        \section{Physics Notation}
+            \label{sec: Physics Notation}
+
+            \subsection{Change ($\Delta$)}
+                \label{subsec: Delta Notation}
+
+                When you see something like $\Delta E_k$ in physics this means ``change in'' $E_k$. 
+                The change is always defined as the final value of that number minus the initial value.
+                \begin{equation}
+                    \Delta v = v_{_{final}} - v_{_{initial}}
+                \end{equation}
+
+\end{document}

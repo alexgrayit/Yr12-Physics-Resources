@@ -1,0 +1,451 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    %\addtocontents{toc}{\protect\newpage}
+
+    \chapter{Calculus}
+        \label{ch: Calculus}
+        \thispagestyle{noheader}
+
+
+        There are two areas of calculus that can make it difficult. One is the conceptual understanding and the other is the manual aspect of doing the maths.\\
+        There are plenty of both online and school textbook resources on calculus that will be infinitely more helpful for understanding how to take the derivative and how to integrate, so we won't try to cover those here.\\
+        Instead, we'll cover the key ideas of calculus.
+
+        More advanced resources such as those form university courses can be very useful but often use notation that is difficult to understand.\\
+        Hopefully this will arm you with enough knowledge on a variety of topics so that you will be able to understand the maths related to physics and, if you want, research them further.
+
+
+        \section{Derivatives}
+            \label{sec: Derivatives}
+            
+            
+            A regular derivative is denoted in two different ways. The most common when dealing with functions in maths is to just add a dash above the function to say that it is the derivative.
+            \begin{equation*}
+                f(x) \rightarrow f'(x) \rightarrow f''(x)
+            \end{equation*}
+            If you are giving more than the second derivative it is common to just write a number in place of the dashes.
+            \begin{equation*}
+                f''(x) \to f^{(3)}(x)
+            \end{equation*}
+            The most common and most intuitive explanation of taking the derivative is the \textit{slope of the graph} understanding.
+
+            This understanding is based on the formula in \eqref{eq: Definition of Derivative} and basically says that the slope of the line between two points on a graph becomes the slope of the graph at the first point as you compress the second point ever closer to the first point (\figref{fig: Fundamental Derivative Diagram}).
+
+            \begin{equation}
+                f'(x) = \lim_{\Delta x \to 0} \left(\frac{f(x+\Delta x) - f(x)}{\Delta x}\right) = \lim_{\Delta x \to 0} \left(\frac{\Delta f}{\Delta x}\right)
+                \label{eq: Definition of Derivative}
+            \end{equation}
+
+            This is also where the second form of notation comes from. We signify the $\Delta$ getting infinitesimally small by writing it as a $d$.
+
+            \begin{equation*}
+                f(x) \to \frac{d\, f(x)}{dx} \to \frac{d^2 f(x)}{dx^2}
+            \end{equation*}
+            The $x$ on the bottom is actually helpful since it tells us what we are measuring the slope with respect to. In this case it's obvious but when we get to functions of time it is important to specify.
+
+            Having the $d^2$ on top but the $x^2$ on the bottom is also important. Every time we differentiate we take the difference of the function and then divide by the horizontal axis, therefore every time we differentiate we divide by $x$ again. The power on the top shows that this is the $n^{th}$ derivative and the power on the bottom tells us how many times we've had to divide by that variable (\eqref{eq: Second Derivative Notation Explanation}).
+            \begin{equation}
+                \frac{d}{dx}(f') = \frac{d}{dx}\left(\frac{d}{dx}f\right) = \frac{d^2 f}{dx^2}
+                \label{eq: Second Derivative Notation Explanation}
+            \end{equation}
+
+            This may seem like an odd distinction but it's extremely important for units and also explains why the powers are where they are.
+
+            For instance, we say that $x$ velocity is given by \eqref{eq: x Velocity Explanation}
+            \begin{equation}
+                v_x = \frac{dx}{dt}
+                \label{eq: x Velocity Explanation}
+            \end{equation}
+            The units of velocity are $m\,s^{-1}$ because it is distance $(x)$ divided by time $(t)$.
+
+            \vfill
+
+            \begin{figure}[!h]
+                \centering
+                \hspace{-10mm}
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.6}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=5mm 10mm 10mm 10mm}
+                            {\import{images}{Fundamental Derivative Diagram.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+                \hspace{10mm}
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.6}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=5mm 10mm 10mm 10mm}
+                            {\import{images}{Fundamental Derivative Diagram Closer.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+
+                \vspace*{1em}
+
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.6}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=5mm 10mm 10mm 10mm}
+                            {\import{images}{Fundamental Derivative Diagram Limit.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+                \caption{Diagram showing the method of taking the derivative. The distance $\Delta x$ is shortened until it is infinitesimally small such that the slope of the secant approaches ever closer to the slope of the graph.}
+                \label{fig: Fundamental Derivative Diagram}
+            \end{figure}
+            \FloatBarrier
+            
+            \newpage
+
+            \subsection{$\Delta x$ can be Negative}
+                \label{subsec: Delta x can be Negative}
+
+                One important factor that is not reflected in \figref{fig: Fundamental Derivative Diagram} is that $\Delta x$ must be able to be negative or positive and have \eqref{eq: Definition of Derivative} still work (\secref{subsec: Undefined or Ambiguous Derivatives}).
+
+                If there is a case where $\Delta x$ being negative gives a different result than it being positive, e.g. $|x|,$ about $x=0$ (\figref{fig: Abs X}) then the derivative is indeterminate at that given $x$.\\
+                This is due to the definition of a limit having to be equal to its left and right limits (\secref{subsec: Limits}), so if the limit as $\Delta x \to 0$ of the slope is different depending on whether $\Delta x$ is positive or negative then the derivative cannot be defined.
+
+            \subsection{Undefined or Ambiguous Derivatives}
+                \label{subsec: Undefined or Ambiguous Derivatives}
+
+                There are some functions where, even though they are continuous, they are not smooth. In this case smooth means that the gradient of the graph is different depending on what side you approach a given point from.
+
+                For example, take $f(x) = |x|$ (\figref{fig: Abs X}).
+                \begin{figure}[!h]
+                    \centering
+                    \scalebox{0.7}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=15mm 35mm 15mm 10mm}
+                            {\import{images}{Abs X Graph.pgf}}
+                        \end{adjustbox}
+                    }
+
+                    \caption{A graph of $y=|x|$.}
+                    \label{fig: Abs X}
+                \end{figure}
+
+                As we approach $x \to 0^-$ (from the left side) the gradient appears to be $-1$. but as we approach $x \to 0^+$ (from the right hand side) the gradient appears to be $1$. This means that the derivative is undefined at $x=0$.
+
+
+            \newpage
+            \subsection{Partial Derivatives ($\partial$)}
+                \label{subsec: Partial Derivatives}
+
+                Partial derivatives are a bit strange when you first see them but believe me they're actually really simple.\\
+                When you do a normal derivative you do it on a function with respect to one variable. For instance you might be finding $f'(x)$.\\
+                But what if you had the function $f(x,\,t)$? What are you differentiating with respect to?
+
+                Your answer to this might be \textit{``Well I'll just write it as $\frac{df}{dx}$, easy!''}\\
+                And, to be fair, you wouldn't be far off. But then when you differentiate do you just ignore $t$? Why should you, it also changes?
+
+                This is all solved by partial differentiation.
+                \vspace{1em}
+
+                A partial derivative is written with curly $d$'s.
+                \begin{equation}
+                    \frac{\partial f}{\partial x}
+                \end{equation}
+
+                You might say \textit{``But why can't I just write it with a normal $d$?''} -- a reasonable question.\\
+                The reason is that when you use a $d$ you are claiming this is the complete derivative, but with the $\partial$ you are just saying \textit{this is one differential, not the whole thing}.
+                
+                Ok, time for an example.
+
+                Let's say your function is given by \eqref{eq: Example two variable function}
+                \begin{equation}
+                    f(x, t) = ax^2 + bt^3
+                    \label{eq: Example two variable function}
+                \end{equation}
+
+                To partially differentiate it with respect to $x$ or $t$ you just treat the other variable as a constant (like $b$ is a constant in $y=mx + b$).
+                \begin{equation}
+                    \frac{\partial f}{\partial x} = 2ax
+                \end{equation}
+                \begin{equation}
+                    \frac{\partial f}{\partial t} = 3bt^2
+                \end{equation}
+
+            \subsection{Loss of Information}
+                \label{subsec: Loss of Information in Differentiation}
+
+                There are many functions in maths where, when you perform them, you lose information. Taking the derivative is one of these functions.\\
+                Once you lose information, it is impossible to get it back.
+
+                As an example, let's say that you know $f'(x) = 2x$. We know that differentiating $f(x)=x^2$ can get us this function, but so does $f(x)=x^2 + 5$, or $f(x)=x^2 + C$.
+
+                Differentiating loses information about constants.\\
+                Partial Differentiation loses information about constants and the other variables.
+
+
+
+
+        \newpage
+        \section{Integration}
+            \label{sec: Integration}
+
+            There are two main and very different interpretations of what integration is. 
+
+            The first is that it is the anti-derivative, i.e. it undoes taking the derivative.\\
+            The second is the area under a curve and it is this idea that is more important to have a strong conceptual grasp on.
+
+            The method of finding the area is called a Riemann Sum or the Trapezoidal Rule. It involves finding the area of all the trapezoids of width $\Delta x$ between $x=a$ and $x=b$ of some function, then squishing that $\Delta x$ down to be infinitesimally small (\figref{fig: Riemann Sum Diagram}, \eqref{eq: Reimann Sum}).
+
+            \begin{equation}
+                I = \lim_{\Delta x \to 0}\left(\sum_{x=a}^b \frac{f(x) + f(x + \Delta x)}{2}\Delta x\right)
+                \label{eq: Reimann Sum}
+            \end{equation}
+
+            \vfill
+
+            \begin{figure}[!h]
+                \centering
+                \hspace{-5mm}
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.65}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=20mm 10mm 10mm 10mm}
+                            {\import{images}{Riemann Sum Diagram.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+                \hfill
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.65}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=20mm 10mm 10mm 10mm}
+                            {\import{images}{Riemann Sum Diagram Closer.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+                
+                \vspace{1em}
+
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.65}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=20mm 10mm 10mm 10mm}
+                            {\import{images}{Riemann Sum Diagram Limit.pgf}}
+                        \end{adjustbox}
+                    }
+                \end{subfigure}
+                \caption{Diagram showing the method of performing a Riemann Sum. The distance $\Delta x$ is shortened until it is infinitesimally small such that the total area of the trapezoids becomes the area under the curve.}
+                \label{fig: Riemann Sum Diagram}
+            \end{figure}
+            \FloatBarrier
+
+            \newpage
+
+            As we take the limit, $f(x + \Delta x) \to f(x)$, so it becomes \eqref{eq: Limit Definition of Integral}
+            \begin{equation}
+                I = \lim_{\Delta x \to 0}\left(\sum_{x = a}^b f\left(x\right) \Delta x\right)
+                \label{eq: Limit Definition of Integral}
+            \end{equation}
+
+            \begin{equation}
+                I = \lim_{\Delta x \to 0}\left(\sum_{k = 1}^n f\left(a +(k-1)\Delta x\right) k\Delta x\right), \qquad n = \frac{b-a}{\Delta x}
+                \label{eq: Integral sum of areas limit}
+            \end{equation}
+            (\eqref{eq: Integral sum of areas limit} is the more formal definition where we iterate by an integer up to $n$, with the length between $a$ and $b$ divided into $n$ trapezoids of width $\Delta x$ and then the areas are added.)
+            \vspace{1em}
+
+            Then, since Sigma $\left(\sum\right)$ means sum, we make the limit with the sum symbol an s-like symbol $(\int)$ and make the $\Delta$ into a $\ud$ (\eqref{eq: Standard Integral Equation}) 
+            \begin{equation}
+                I = \int_a^b f(x) \ud x
+                \label{eq: Standard Integral Equation}
+            \end{equation}
+
+            We say that the function describing the area under the curve $y=f(x)$ between $x=a$ and some movable point $x$ is $F(x)$ (\eqref{eq: Area Function}).
+            \begin{equation}
+                F(x) = \int_a^x f(t)\ud t
+                \label{eq: Area Function}
+            \end{equation}
+
+            \vspace*{1em}
+            It is not inherently obvious from this that integrating is the inverse of differentiation. The proofs are a bit tedious but it can be proven as generally true (\eqref{eq: Fundamental Theorem of Calculus}).
+            \begin{equation}
+                F'(x) = \frac{d}{dx}\int_a^x f(t)\ud t = f(x)
+                \label{eq: Fundamental Theorem of Calculus}
+            \end{equation}
+
+            \newpage
+
+            \subsection{Negative or Signed Area}
+                \label{subsec: Negative Area}
+
+                When we spoke about the integral between two regions being the area under the curve, we neglected to consider what happens when the curve is below the $x$ axis. 
+
+                In this case the area below the axis is treated as `negative'. The area isn't really negative but it must be treated this way for more practical uses of integration.
+                For instance in physics we say that an object's position vector is given by the integral of its velocity vector with time (\eqref{eq: x Velocity - Calculus})
+
+                \begin{equation}
+                    \Delta x = \int_{t_1}^{t_2} v_x \ud t
+                    \label{eq: x Velocity - Calculus}
+                \end{equation}
+
+                In \figref{fig: Velocity Integral Area Example} we see that there is an area above the horizontal ($t$) axis and an area below the horizontal axis. The total area is all of the positive area (the stuff above the axis) minus all of the negative area (the stuff below the axis).
+                
+                In this case we can see that the areas are the same so the total integral is 0.\\
+                This is representative of the fact that the object will have the same position at each of these times.
+
+                The function used here was $v_x = \sin t$ with $t_1 = \frac{\pi}{2}, \, \, t_2 = \frac{3\pi}{2}$.\\
+                Integrating manually gives the same result (as we would hope):
+
+                \begin{align*}
+                    \Delta x &= \int_{t_1}^{t_2} v_x \ud t\\[-1.5em]
+                    &= \int_{\frac{\pi}{2}}^{\frac{3\pi}{2}} \sin t \ud t \\[-1.5em]
+                    &= \left[-\cos t\right]_{\frac{\pi}{2}}^{\frac{3\pi}{2}} = -0 + 0 = 0
+                \end{align*}
+
+                \begin{figure}[h]
+                    \centering
+                    \scalebox{0.7}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=20mm 15mm 10mm 10mm}
+                            {\import{images}{Velocity Integral Area Example.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{Diagram of an integral of velocity with respect to time that has areas both above and below the horizontal axis.}
+                    \label{fig: Velocity Integral Area Example}
+                \end{figure}
+            \newpage
+
+            
+
+            \subsection{Area vs Anti-Derivative}
+                \label{subsec: Area vs Anti-Derivative}
+
+                To make the distinction as to whether something is trying to find the area under a curve or trying to be an anti-derivative you have to look at the bounds.
+                
+                If one of the bounds is moveable (i.e. $x$) or there are no bounds at all, then it is probably performing the function of an anti-derivative.\\
+                If it has fixed bounds (i.e. $a$ and $b$) then it is finding the area under the curve between the bounds.
+
+            
+            \subsection{Integration as a Sum}
+                \label{subsec: Integration as a Sum}
+
+                You can also think of an integral as a sum. This is actually the case, it's why the integral sign is basically just an `S' shape, since it's meant to be the sum of the infinitely many infinitesimal rectangular areas under the graph.
+
+                But sometimes it can also be a useful way to understand an integral which has more of a practical meaning, such as those found in physics.\\
+                For instance, in physics we say that a single point mass with mass $m$ rotating at a radius $r$ from the spin axis has a moment of inertia $I = mr^2$. Don't worry about what this is relating to for this case, but it is covered in more depth in \secref{ch: Advanced Mechanics}.\\
+                But most things aren't a point mass, they have size or are at least made of multiple particles (which aren't really point masses but can be treated as point masses).\\
+                To find the total moment of inertia of the object we need to add up all of the moments of inertia of the object (\eqref{eq: Moment of Inertia total sum}).
+                \begin{equation}
+                    I_{total} = \sum mr^2
+                    \label{eq: Moment of Inertia total sum}
+                \end{equation}
+
+                But, when dealing with a continuous evenly distributed mass, we can't ``find'' all of the individual masses, and as we break up the mass into smaller and smaller pieces the mass term gets smaller and smaller but we get more and more masses, almost like it becomes the addition of infinitely many infinitesimal terms.
+
+                So, because the mass term becomes super small as we break up the mass it becomes the total sum of the small masses $dm$ multiplied by their distance squared from the rotation axis $r^2$ (\eqref{eq: Moment of Inertia - calc})
+                \begin{equation}
+                    I_{total} = \int_0^M r^2 \ud m
+                    \label{eq: Moment of Inertia - calc}
+                \end{equation}
+
+                The bounds of $0$ and $M$ represent that we are finding the sum of all of the contributions from each of the small $dm$'s over the whole object with mass $M$.
+
+                \newpage
+
+                \subsubsection{Total length of a Curve Using Integration}
+                    \label{subsubsec: Length of a Curve}
+
+                    On the topic of using an integral as a sum, we can use an integral as a way of finding the total length of a function curve between two bounds.
+
+                    Let's consider some function $f(x)$ that has a derivative that exists $f'(x)$ (there are some functions that don't).\\
+                    In \figref{fig: Curve Length Diagram} we can see a function such as this. Between two arbitrary points on that curve we have drawn the `rise' ($dy$) and the `run' ($dx$). With pythagoras' theorem we can see that the small piece of curve $dl$ is given by \eqref{eq: Small Length Size}.\\
+                    Though the diagram is exaggerated, as $dx$ takes the limit to 0 (gets really small) the graph approaches being linear over that range and so the use of pythagoras's theorem is justified.
+                    
+                    \begin{equation}
+                        dl = \sqrt{dx^2 + dy^2}
+                        \label{eq: Small Length Size}
+                    \end{equation}
+
+                    \begin{figure}[h]
+                        \centering
+                        \scalebox{0.9}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=20mm 58mm 10mm 10mm}
+                                {\import{images}{Curve Length Diagram.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{Diagram showing the relationship between the small lengths $dx$ \& $dy$ and the length of the curve over that step $dl$. }
+                        \label{fig: Curve Length Diagram}
+                    \end{figure}
+                    
+                    Rearranging \eqref{eq: Small Length Size} gives us \eqref{eq: Small Length Rearranged}
+                    \begin{equation}
+                        dl = dx \sqrt{1 + \left(\frac{dy}{dx}\right)^2}
+                        \label{eq: Small Length Rearranged}
+                    \end{equation}
+
+                    Then, taking the sum of all of the small lengths $dl$ gives us \eqref{eq: Length of a Curve}
+
+                    \begin{align}
+                        \int_0^L d l &= \int_a^b \sqrt{1 + \left(f'(x)\right)^2} \ud x \nonumber\\
+                        L &= \int_a^b \sqrt{1 + \left(f'(x)\right)^2} \ud x
+                        \label{eq: Length of a Curve}
+                    \end{align}
+
+
+                
+            \newpage
+
+
+            \subsection{Regaining Lost Information}
+                \label{subsec: Regaining Lost Information in Integration}
+
+                In \secref{subsec: Loss of Information in Differentiation} it was mentioned how, when differentiating, you lose information about constants.\\
+                As a result, when we integrate without bounds (anti-differentiate) we have to remember to add $+ C$ to the end of our final answer, since this represents the constant that we lost, and still do not know, when differentiating.
+
+                In that sense we can say that differentiation is the anti-integral but integration is an imperfect anti-differentiator.\\
+                We can say that \eqref{eq: Anti-Integral} is true, but we cannot say that \eqref{eq: Imperfect Anti-Differentiation} is true.
+
+                \begin{equation}
+                    f(x) = \frac{d}{dx}\int f(x) \ud x
+                    \label{eq: Anti-Integral}
+                \end{equation}
+                \begin{equation}
+                    f(x) \stackrel{?}{=} \int \left(\frac{d}{dx}f(x)\right)dx
+                    \label{eq: Imperfect Anti-Differentiation}
+                \end{equation}
+
+                
+            \subsection{The Meaning of an Integral in the Context of Physics}
+                \label{subsec: Meaning of an Integral}
+
+                In physics it is very common to hear the statement \textit{``velocity is the rate of change of position''}.
+                
+                \begin{equation*}
+                    \vect{v} = \frac{d\vect{s}}{dt}
+                \end{equation*}
+
+                The other way of thinking about this is that the velocity is the small change in position that occurs over a small period of time, divided by that time.
+
+                We can rearrange the formula to say that a small change in position over a small period of time is given by the velocity at that time, multiplied by the small change in time.
+                
+                \begin{equation*}
+                    d\vect{s} = \vect{v}\, dt
+                \end{equation*}
+
+                This can be thought of as the (signed) area of the trapezoid under the curve $\vect{v}(t)$ with width $dt$ at some time $t$.\\
+                To find the total change of $\vect{s}$ between the times $t_1$ and $t_2$ we just need to add up all of these small contributions from $\vect{v}$, in other words add up all of the areas of the trapezoids.\\
+                An integral is shaped like an `S' since it is a type of sum, just a sum of infinitely many infinitesimal pieces. So, to add up these infinitely many infinitesimal contributions from $\vect{v}$ we need to integrate $\vect{v}$ with respect to $t$.
+
+        
+\end{document}

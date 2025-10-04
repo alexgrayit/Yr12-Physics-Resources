@@ -1,0 +1,139 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {I}Linear Algebra}{1}{chapter.I}%
+\contentsline {section}{Coordinate \& Vector Notation}{1}{chapter.I}%
+\contentsline {subsection}{$\mathbb {R}^n$ Notation}{1}{chapter.I}%
+\contentsline {subsection}{3D Point Notation}{1}{chapter.I}%
+\contentsline {subsection}{3D Vector Notation}{1}{chapter.I}%
+\contentsline {subsection}{The Zero Vector}{2}{chapter.I}%
+\contentsline {subsection}{Vectors Between Points}{2}{equation.I.0.1}%
+\contentsline {section}{Vector Operations}{3}{equation.I.0.3}%
+\contentsline {subsection}{Scalar Multiplication}{3}{equation.I.0.3}%
+\contentsline {subsubsection}{Properties of Scalar Multiplication}{3}{equation.I.0.4}%
+\contentsline {subsection}{Addition \& Subtraction}{3}{equation.I.0.6}%
+\contentsline {subsubsection}{Properties of Addition}{4}{equation.I.0.7}%
+\contentsline {subsubsection}{Adding Vectors Visually}{4}{equation.I.0.12}%
+\contentsline {subsection}{Modulus}{5}{figure.caption.4}%
+\contentsline {subsubsection}{Properties of Modulus}{5}{equation.I.0.14}%
+\contentsline {subsection}{Unit Vectors}{5}{equation.I.0.16}%
+\contentsline {subsection}{The Dot Product}{6}{equation.I.0.18}%
+\contentsline {subsubsection}{Properties of the Dot Product}{6}{figure.caption.5}%
+\contentsline {subsection}{The Cross Product}{7}{equation.I.0.25}%
+\contentsline {subsubsection}{Properties of the Cross Product}{8}{figure.caption.7}%
+\contentsline {subsection}{Some Useful Vector Identities}{9}{figure.caption.8}%
+\contentsline {section}{Matrices}{10}{equation.I.0.34}%
+\contentsline {subsection}{Matrix Notations \& Definitions}{10}{equation.I.0.34}%
+\contentsline {subsubsection}{Definitions}{10}{equation.I.0.35}%
+\contentsline {subsection}{Multiplying a Matrix by a Scalar}{10}{equation.I.0.36}%
+\contentsline {subsection}{Matrix Addition}{11}{equation.I.0.36}%
+\contentsline {subsection}{Matrix Multiplication}{11}{equation.I.0.36}%
+\contentsline {subsection}{Matrix Transposes}{12}{equation.I.0.37}%
+\contentsline {subsection}{Determinants}{12}{equation.I.0.37}%
+\contentsline {subsubsection}{Some Required Notation}{12}{equation.I.0.37}%
+\contentsline {subsubsection}{The formulas}{12}{equation.I.0.37}%
+\contentsline {subsection}{Matrix Inversion}{13}{equation.I.0.39}%
+\contentsline {chapter}{\numberline {II}Calculus}{14}{chapter.II}%
+\contentsline {section}{Derivatives}{14}{chapter.II}%
+\contentsline {subsection}{$\Delta x$ can be Negative}{16}{figure.caption.9}%
+\contentsline {subsection}{Undefined or Ambiguous Derivatives}{16}{figure.caption.9}%
+\contentsline {subsection}{Partial Derivatives ($\partial $)}{17}{figure.caption.10}%
+\contentsline {subsection}{Loss of Information}{17}{equation.II.0.7}%
+\contentsline {section}{Integration}{18}{equation.II.0.7}%
+\contentsline {subsection}{Negative or Signed Area}{20}{equation.II.0.13}%
+\contentsline {subsection}{Area vs Anti-Derivative}{21}{figure.caption.12}%
+\contentsline {subsection}{Integration as a Sum}{21}{figure.caption.12}%
+\contentsline {subsubsection}{Total length of a Curve Using Integration}{22}{equation.II.0.16}%
+\contentsline {subsection}{Regaining Lost Information}{23}{equation.II.0.19}%
+\contentsline {subsection}{The Meaning of an Integral in the Context of Physics}{23}{equation.II.0.21}%
+\contentsline {chapter}{\numberline {III}Vector Calculus}{24}{chapter.III}%
+\contentsline {section}{Differentiation of Vectors}{24}{chapter.III}%
+\contentsline {subsection}{Special Differentiation Identities}{24}{equation.III.0.3}%
+\contentsline {subsubsection}{Differentiating Vector Products}{24}{equation.III.0.3}%
+\contentsline {subsubsection}{Differentiating the Modulus}{25}{equation.III.0.5}%
+\contentsline {subsubsection}{Differentiating the Unit Vector}{25}{equation.III.0.6}%
+\contentsline {section}{Differentiation of Fields}{26}{equation.III.0.8}%
+\contentsline {subsection}{Differentiating Scalar Fields}{26}{equation.III.0.8}%
+\contentsline {subsubsection}{Differentiating Scalar Fields with Respect to Time}{27}{figure.caption.16}%
+\contentsline {subsubsection}{The $\grad {}$ Operator}{28}{AMS.18}%
+\contentsline {subsection}{Differentiating Vector Fields}{30}{figure.caption.19}%
+\contentsline {subsubsection}{The $\div {}$ Operator}{30}{figure.caption.19}%
+\contentsline {subsubsection}{The $\curl {}$ Operator}{35}{figure.caption.23}%
+\contentsline {chapter}{\numberline {IV}Notation}{41}{chapter.IV}%
+\contentsline {section}{Mathematical Notation}{41}{chapter.IV}%
+\contentsline {subsection}{Subscripts}{41}{chapter.IV}%
+\contentsline {subsection}{Limits}{41}{chapter.IV}%
+\contentsline {subsubsection}{A Standard Limit}{41}{chapter.IV}%
+\contentsline {subsubsection}{Limits from the Left and Right}{42}{figure.caption.31}%
+\contentsline {section}{Physics Notation}{43}{equation.IV.0.5}%
+\contentsline {subsection}{Change ($\Delta $)}{43}{equation.IV.0.5}%
+\newpage 
+\contentsline {chapter}{\numberline {1}Kinematics}{44}{chapter.1}%
+\contentsline {section}{Base Units}{44}{chapter.1}%
+\contentsline {section}{Constants}{44}{table.caption.32}%
+\contentsline {section}{Equations}{44}{table.caption.32}%
+\contentsline {subsection}{Non-Syllabus Equations}{45}{equation.1.0.7}%
+\contentsline {section}{Module Notes}{46}{equation.1.0.10}%
+\contentsline {subsection}{Significant Figures \& Precision}{46}{equation.1.0.10}%
+\contentsline {subsubsection}{Measurement Uncertainty}{46}{equation.1.0.10}%
+\contentsline {subsection}{Scientific Notation}{47}{equation.1.0.10}%
+\contentsline {subsection}{Frames of Reference}{48}{table.caption.33}%
+\contentsline {subsubsection}{The General Non-Relativistic Case}{48}{table.caption.33}%
+\contentsline {section}{Derivations of Formulas}{49}{table.caption.33}%
+\contentsline {chapter}{\numberline {2}Dynamics}{51}{chapter.2}%
+\contentsline {section}{Base Units}{51}{chapter.2}%
+\contentsline {section}{Constants}{51}{table.caption.42}%
+\contentsline {section}{Equations}{51}{table.caption.42}%
+\contentsline {subsection}{Non-Syllabus Equations}{53}{equation.2.0.12}%
+\contentsline {section}{Newton's Laws}{55}{equation.2.0.20}%
+\contentsline {subsection}{1\textsuperscript {st} Law -- Inertia}{55}{equation.2.0.20}%
+\contentsline {subsection}{2\textsuperscript {nd} Law -- Force}{55}{equation.2.0.20}%
+\contentsline {subsection}{3\textsuperscript {rd} Law -- Force Pairs}{55}{equation.2.0.20}%
+\contentsline {section}{Contact Forces}{56}{equation.2.0.20}%
+\contentsline {subsection}{Friction Forces}{56}{equation.2.0.20}%
+\contentsline {subsection}{Normal Forces}{56}{figure.caption.43}%
+\contentsline {section}{Force as the Time Derivative of Momentum}{57}{figure.caption.43}%
+\contentsline {section}{Derivation that Net Force is Related to the Acceleration of the Centre of Mass of an Object}{57}{equation.2.0.21}%
+\contentsline {section}{Energy}{58}{equation.2.0.21}%
+\contentsline {subsection}{The Law of Conservation of Energy}{58}{equation.2.0.21}%
+\contentsline {subsection}{Kinetic Energy}{59}{equation.2.0.21}%
+\contentsline {subsection}{Work}{59}{AMS.44}%
+\contentsline {subsubsection}{Work is the change in Kinetic Energy}{60}{figure.caption.46}%
+\contentsline {subsection}{Potential Energy}{61}{figure.caption.46}%
+\contentsline {subsection}{Power}{61}{figure.caption.46}%
+\contentsline {chapter}{\numberline {3}Waves \& Thermodynamics}{63}{chapter.3}%
+\contentsline {section}{Waves}{63}{chapter.3}%
+\contentsline {subsection}{Rules for all Waves}{63}{chapter.3}%
+\contentsline {subsubsection}{Addition of Waves (Interference)}{63}{chapter.3}%
+\contentsline {subsubsection}{Reflection of Waves}{63}{chapter.3}%
+\contentsline {subsubsection}{Intensity of a Wave}{64}{figure.caption.49}%
+\contentsline {section}{Thermodynamics}{65}{figure.caption.49}%
+\contentsline {chapter}{\numberline {4}Electricity \& Magnetism}{66}{chapter.4}%
+\contentsline {section}{Electrostatics}{66}{chapter.4}%
+\contentsline {subsection}{Charge}{66}{chapter.4}%
+\contentsline {subsection}{The Electric Field}{66}{chapter.4}%
+\newpage 
+\contentsline {chapter}{\numberline {5}Advanced Mechanics}{67}{chapter.5}%
+\contentsline {section}{Base Units}{67}{chapter.5}%
+\contentsline {section}{Constants}{67}{table.caption.50}%
+\contentsline {section}{Equations}{68}{table.caption.51}%
+\contentsline {subsection}{Non-Syllabus Equations}{69}{equation.5.0.12}%
+\contentsline {section}{Circular Motion of a Single Point Mass}{73}{equation.5.0.33}%
+\contentsline {subsection}{Derivation of Centripetal Acceleration}{73}{equation.5.0.33}%
+\contentsline {subsubsection}{Graphical Derivation}{74}{equation.5.0.33}%
+\contentsline {subsubsection}{Vector Derivation}{76}{equation.5.0.36}%
+\contentsline {section}{An In-depth Exploration of Newton's Laws}{77}{equation.5.0.41}%
+\contentsline {subsection}{Newton's 1\textsuperscript {st} Law}{77}{equation.5.0.41}%
+\contentsline {subsection}{Newton's 2\textsuperscript {nd} Law}{77}{equation.5.0.41}%
+\contentsline {subsection}{Newton's 3\textsuperscript {rd} Law}{79}{equation.5.0.42}%
+\contentsline {section}{Rotation of a Rigid Body}{80}{equation.5.0.42}%
+\contentsline {subsection}{Defining \& Deriving Some Key Equations}{80}{equation.5.0.42}%
+\contentsline {subsubsection}{Angular Velocity}{80}{equation.5.0.42}%
+\contentsline {subsubsection}{Angular Momentum}{80}{AMS.63}%
+\contentsline {subsubsection}{Moment of Inertia \& The Inertia Tensor}{80}{equation.5.0.43}%
+\contentsline {subsubsection}{Torque}{83}{equation.5.0.47}%
+\contentsline {chapter}{\numberline {6}Electromagnetism}{84}{chapter.6}%
+\contentsline {section}{Base Units}{84}{chapter.6}%
+\contentsline {section}{Constants}{84}{table.caption.71}%
+\contentsline {section}{Equations}{85}{table.caption.72}%
+\contentsline {subsection}{Electrostatics}{85}{table.caption.72}%
+\contentsline {section}{Gauss' Law}{87}{equation.6.0.14}%
+\contentsline {subsection}{Integral Form}{87}{equation.6.0.14}%

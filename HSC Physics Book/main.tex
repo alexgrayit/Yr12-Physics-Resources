@@ -1,0 +1,428 @@
+\documentclass[a4paper, english, 12pt]{book}
+\setlength{\parindent}{0em}
+
+
+\usepackage{fancyhdr}
+
+\usepackage{fix-cm}
+\makeatletter
+\newcommand\HUGE{\@setfontsize\Huge{50}{60}}
+\makeatother   
+
+\usepackage[justification=centering, margin=10mm]{caption}
+\usepackage{babel}
+\usepackage{upgreek}
+
+\usepackage{subcaption}
+\usepackage{placeins}
+
+\usepackage{amsmath}
+    \numberwithin{equation}{chapter}
+    \setlength{\jot}{2em}
+    \allowdisplaybreaks[1]
+\usepackage{nccmath}
+\usepackage{tabularx}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{siunitx}
+\usepackage{esint}
+\usepackage{accents}
+\usepackage{pgfplots}
+\usepackage{tikzscale}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,patterns,angles,quotes}
+\usepackage{pgf}
+\usepackage{calc}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{bigints}
+\usepackage{array}
+\usepackage[none]{hyphenat}
+\usepackage[a4paper, portrait, right=20mm, left=20mm, top=25mm, bottom=20mm, showframe=false]{geometry}
+\usepackage{url}
+\usepackage{adjustbox}
+
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+
+\usepackage{subfiles}
+%See https://en.wikibooks.org/wiki/LaTeX/Modular_Documents
+
+
+\usepackage[hidelinks, plainpages=false, pdfpagelabels]{hyperref}%links the reference to the item
+\usepackage{bookmark}
+
+
+
+%CREATIVE COMMONS LICENSES
+\newcommand{\CCSA}{\href{https://creativecommons.org/licenses/by-sa/3.0/deed.en}{CC BY-SA 3.0}}
+
+
+
+
+\usepackage{hyperref,xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.6}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    filecolor=magenta,      
+    urlcolor=blue,
+    %pdftitle={HSC Physics},
+    %pdfpagemode=FullScreen,
+}
+
+
+\usepackage{mathtools}%idk whether this is needed but ¯\_(ツ)_/¯
+
+\newcommand{\ud}{\, \, d}
+\newcommand{\Reals}{\mathbb{R}}
+\newcommand{\Complexs}{\mathbb{C}}
+\newcommand{\Integers}{\mathbb{Z}}
+\newcommand{\Naturals}{\mathbb{N}}
+\newcommand{\Rationals}{\mathbb{Q}}
+\newcommand{\Primes}{\mathbb{P}}
+\DeclareMathOperator{\vectProj}{proj}
+\newcommand{\proj}[2]{\vectProj_{#2} {#1}}
+
+\newcommand{\emf}{\mathcal{E}}
+
+%vector definitions ------------------------------------------------------------------------------------------------------------------
+\usepackage{bm}
+
+\newcommand{\hvec}[1]{\accentset{\rightharpoonup{}\vspace{-0.5mm}}{#1}}
+\newcommand{\svec}[1]{\underaccent{\tilde}{#1}}
+\newcommand{\bvec}[1]{\boldsymbol{\mathbf{#1}}}
+
+\newcommand{\vect}[1]{\bvec{\hvec{#1}}}%used vector format
+\newcommand{\vhat}[1]{\bvec{\hat{#1}}}%used hat format
+
+\makeatletter
+\newcommand*{\rightharpoonupfill@}{\arrowfill@\relbar\relbar\rightharpoonup}
+\newcommand{\lhvec}{\mathpalette{\overarrow@\rightharpoonupfill@}}
+\newcommand{\lvect}[1]{\bvec{\lhvec{#1}}}%final edit here
+
+\newcommand{\vmod}[1]{\left\| #1 \right\|}
+
+
+\usepackage[arrowdel]{physics}
+%\grad{f}
+%\div{f}
+%\curl{f}
+%\laplacian{f}
+
+%\newcommand{\grad}{\vect{\nabla}}
+%\renewcommand{\div}{\vect{\nabla} \cdot}
+%\newcommand{\curl}{\vect{\nabla} \times}
+%\newcommand{\laplacian}{\bvec{\nabla}^2}
+
+
+%\newcommand{\del}{\vect{\nabla}}
+%vector definitions ------------------------------------------------------------------------------------------------------------------
+\newcommand{\bfrac}[2]{\frac{\displaystyle #1}{\displaystyle #2}}
+\newcommand{\bint}{\displaystyle \int}
+
+\newcommand{\gap}[1]{\vspace{\stretch{#1}}}
+
+\usepackage{nameref}
+\newcommand{\secref}[1]{\mbox{\hyperref[#1]{\S}\ref{#1}\hyperref[#1]{:\hspace{1pt}}\nameref{#1}}}
+\renewcommand{\eqref}[1]{\mbox{\hyperref[#1]{Eq.\hspace{2pt}}\ref{#1}}}
+\newcommand{\eqnum}[1]{\ref*{#1}}
+\newcommand{\figref}[1]{\mbox{\hyperref[#1]{Fig.\hspace{2pt}}\ref{#1}}}
+\newcommand{\tableref}[1]{\mbox{\hyperref[#1]{Table \hspace{2pt}}\ref{#1}}}
+\newcommand{\function}[8]{%{function}{yLabel}{xLabel}{Domain Min}{Domain Max}{Range Min}{Range Max}{Width of Graph}
+    \begin{tikzpicture}
+        \begin{axis}[
+            width = #8,
+            axis x line=center,
+            axis y line=center,
+            ticks = none,
+            xlabel={#3},
+            ylabel={#2},
+            xlabel style={above right},
+            ylabel style={above left},
+            xmin= #4,
+            xmax={#5},
+            ymin={#6},
+            ymax={#7},
+            enlargelimits=upper]
+            \addplot [mark=none, domain=#4:#5, range=#6:#7, samples=500, smooth] {#1};
+        \end{axis}
+    \end{tikzpicture}
+  }
+
+\newcommand{\Matrix}[1]{\begin{bmatrix}
+     #1 
+\end{bmatrix}}
+
+\newcommand{\mtrx}[1]{\left[#1\right]}
+
+\newcommand{\deq}{\coloneqq}%defined as equal
+
+
+%------- Overbar Command \xoverline -------
+
+%usage either \xoverline{x} or \xoverline[width percent]{x}
+\makeatletter
+\newsavebox\myboxA
+\newsavebox\myboxB
+\newlength\mylenA
+
+\newcommand*\xoverline[2][0.75]{%
+    \sbox{\myboxA}{$\m@th#2$}%
+    \setbox\myboxB\null% Phantom box
+    \ht\myboxB=\ht\myboxA%
+    \dp\myboxB=\dp\myboxA%
+    \wd\myboxB=#1\wd\myboxA% Scale phantom
+    \sbox\myboxB{$\m@th\overline{\copy\myboxB}$}%  Overlined phantom
+    \setlength\mylenA{\the\wd\myboxA}%   calc width diff
+    \addtolength\mylenA{-\the\wd\myboxB}%
+    \ifdim\wd\myboxB<\wd\myboxA%
+       \rlap{\hskip 0.5\mylenA\usebox\myboxB}{\usebox\myboxA}%
+    \else
+        \hskip -0.5\mylenA\rlap{\usebox\myboxA}{\hskip 0.5\mylenA\usebox\myboxB}%
+    \fi}
+\makeatother
+
+%------------------------------------------
+
+
+
+\usepackage[utf8]{inputenc}\DeclareUnicodeCharacter{2212}{-}
+\usepackage{import}
+
+
+
+\let\cleardoublepage=\clearpage%stops random pages being printed after the ToC and titlepage
+
+
+%fancyhdr settings-----------------------------------------------------------------
+\renewcommand{\chaptermark}[1]{\markboth{\Large #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{15.2pt}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyhead[LO, LE]{\leftmark}
+\fancyfoot[RE, RO]{\thepage}
+\fancyhead[RO, RE]{\hyperlink{ToC}{Table of Contents}}
+
+\fancypagestyle{noheader}{
+  \fancyhf{}% Clear header/footer
+  \renewcommand{\headrulewidth}{0pt}% No header rule
+  \fancyfoot[RE, RO]{\thepage}
+}
+
+%End of fancyhdr settings-----------------------------------------------------------
+
+
+\usepackage{xpatch}
+\newlength{\beforechapskip}
+\newlength{\chaptertopskip}
+\newlength{\chapterbottomskip}
+\setlength{\beforechapskip}{0mm}
+\setlength{\chaptertopskip}{0mm}
+\setlength{\chapterbottomskip}{10mm}
+
+\newlength{\tablegap}
+\setlength{\tablegap}{0.3em}
+
+
+\usepackage{titlesec}
+\usepackage{bold-extra}
+\titleformat{\section}{\normalfont\Large\bfseries}{}{2em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{}{5em}{}
+\titleformat{\subsubsection}{\normalfont\normalsize\bfseries\itshape}{}{1em}{}
+\newcommand{\subsubsubsection}[1]{\normalfont\normalsize\itshape #1}
+
+%spacing is:  left, before, after
+\titlespacing{\section}{0pt}{1em}{-0.5em}
+\titlespacing{\subsection}{0pt}{1em}{-0.7em}
+\titlespacing{\subsubsection}{0pt}{1em}{-0.8em}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
+
+\graphicspath{{./images/}}
+
+
+\usepackage{changepage}
+\newcommand{\eqexp}[1]{
+    \begin{adjustwidth}{1cm}{2cm}
+        \textit{#1}
+    \end{adjustwidth}
+    \vspace{1em}
+    }
+
+\newcommand{\super}{\textsuperscript}
+\newcommand{\sub}{\textsubscript}
+
+
+
+
+
+
+
+
+
+
+\author{\textbf{Alex Gray}\\Test Author}
+\title{A Thorough Exploration\\of HSC Physics}
+\date{}
+
+\setcounter{secnumdepth}{0} % levels under sublevel x are not numbered
+\setcounter{tocdepth}{3}%makes the ToC only show x sublevels
+
+\begin{document}
+
+    \frontmatter
+    \iffalse
+    \begin{titlepage}
+        \begin{center}
+            \vspace*{3cm}
+            {\Huge \bfseries \@title}\\
+
+            \vspace*{1cm}
+            {\Large \@author}
+
+            \vfill
+
+            {\huge Topics}\\
+
+            \iffalse
+            {
+                \large
+                \begin{tabular}{m{90mm}}
+                    Module 5: Advanced Mechanics\\
+                    Module 6: Electromagnetism\\
+                    Module 7: The Nature of Light\\
+                    Module 8: From the Universe to the Atom\\
+                \end{tabular}
+            }
+            \fi
+
+            \vspace*{5cm}
+        \end{center}
+    \end{titlepage}
+    \fi
+    
+    
+    \iffalse
+    \section*{Note from the Author}
+    
+        High school physics covers a large breadth of content and attempts to cater for those who are doing just ok and those who excel at it. While this is pretty much what has to be done for physics, it can be annoying at the time to not understand why a formula is what it is. 
+
+        For me, I found physics extremely interesting when I was doing it in Year 11 and always wanted to really understand why there was a particular formula for something. Luckily for me, my teachers were all willing to sit down and have a conversation with me about it and, if they weren't sure, were able to provide me with the right search terms for me to find out online.\\
+
+        However, the most formative experience I had was finding out how to use calculus in physics. Calculus is often the explanation for why many formulas have random halves scattered about. For example, it's how we get the equations for projectile motion like $s = ut + \frac{1}{2}at^2$.\\
+
+        So, the purpose of this text is to provide a large source of answers to the questions that I asked when I was doing physics and provide real answers, rather than ``Oh, because calculus.''
+    \fi
+    \newpage
+    
+    \setlength{\parskip}{0.2em}
+
+    
+    \phantomsection 
+    \hypertarget{ToC}{}  % Make an anchor to the toc
+    \tableofcontents
+    \thispagestyle{noheader}
+    \newpage
+
+
+
+    
+    \setlength{\parskip}{1em}
+    
+
+    %Defines Chapter heading for pre-modules---------------------------------------------------------------------
+    \renewcommand{\thechapter}{\Roman{chapter}}%Defines numbering for pre-modules as roman
+    \renewcommand{\theHchapter}{\Roman{chapter}}
+
+    \makeatletter
+    \def\@makechapterhead#1{%
+    \vspace*{\chaptertopskip}%
+    {\parindent \z@ \raggedright \normalfont
+        \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+            \huge\bfseries Pre-Module\space \thechapter:\
+    %        \par\nobreak
+    %        \vskip 20\p@
+        \fi
+        \fi
+        \interlinepenalty\@M
+        \Huge \bfseries #1\par\nobreak
+        \vskip \chapterbottomskip
+    }}
+    \makeatother
+    % See https://tex.stackexchange.com/questions/309920/how-to-move-the-chapter-title-upwards-on-page
+
+    %-------------------------------------------------------------------------------------------------------------
+
+    \mainmatter
+
+    %PRE-MODULES
+    \subfile{Chapters/Vector Algebra}
+
+    %\subfile{Chapters/Fields}
+
+    \subfile{Chapters/Calculus}
+
+    \subfile{Chapters/Vector Calculus}
+
+    \subfile{Chapters/Notation}
+
+
+
+    
+
+
+    %Defines Chapter heading for modules----------------------------------------------------------------------------------------------------
+    \renewcommand{\thechapter}{\arabic{chapter}}%Defines numbering for modules as arabic numbering (normal)
+    \renewcommand{\theHchapter}{\arabic{chapter}}
+
+    \makeatletter
+    \def\@makechapterhead#1{%
+    \vspace*{\chaptertopskip}%
+    {\parindent \z@ \raggedright \normalfont
+        \ifnum \c@secnumdepth >\m@ne
+        \if@mainmatter
+            \huge\bfseries Module\space \thechapter:\
+    %        \par\nobreak
+    %        \vskip 20\p@
+        \fi
+        \fi
+        \interlinepenalty\@M
+        \Huge \bfseries #1\par\nobreak
+        \vskip \chapterbottomskip
+    }}
+    \makeatother
+    % See https://tex.stackexchange.com/questions/309920/how-to-move-the-chapter-title-upwards-on-page
+    %The guy from the internet basically had this word for word, though some changes have been made to make it say module and what not.
+
+    %-----------------------------------------------------------------------------------------------------------------------------------------------
+
+    \setcounter{chapter}{0}%makes the module numbering start at x+1, where x is the number here
+
+    \subfile{Chapters/Kinematics}
+
+    \subfile{Chapters/Dynamics}
+
+    \subfile{Chapters/Waves and Thermodynamics}
+
+    \subfile{Chapters/Electricity and Magnetism}
+
+
+    \setcounter{chapter}{4}%makes the module numbering start at x+1, where x is the number here
+
+    \addtocontents{toc}{\protect\newpage}
+
+    \subfile{Chapters/Advanced Mechanics}
+
+    \subfile{Chapters/Electromagnetism}
+
+    %\subfile{Chapters/The Nature of Light}
+
+    %\subfile{Chapters/From the Universe to the Atom}
+\end{document}

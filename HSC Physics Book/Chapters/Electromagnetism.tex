@@ -1,0 +1,138 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    \chapter{Electromagnetism}
+        \label{ch: Electromagnetism}
+        \thispagestyle{noheader}
+
+        Electromagnetism is the area of physics that defines the behaviour of the electric $(\vect{E})$ and magnetic $(\vect{B})$ fields and their eventual combination into the electromagnetic field.
+
+        \section{Base Units}
+            \label{sec: Base Units - Electromagnetism}
+            \begin{table}[!h]
+                \noindent\begin{tabular}{@{} p{45mm} C{10mm} p{110mm}}
+                    Charge &($q$) &Coulombs (\si{\coulomb})\\[\tablegap]
+                    Electric Field &($\vect{E}$) &Newtons per Coulomb (\si{\newton\per\coulomb})\\[\tablegap]
+                    Electric Potential Energy &($U_E$) &Joules (\si{\joule})\\[\tablegap]
+                    Electric Potential &($V$) &Volts (\si{\volt}) \textbf{or} Joules per Coulomb (\si{\joule \per\coulomb})\\[\tablegap]
+                    Electric Flux &($\Phi_E$) &Volt Metres (\si{\volt \metre})\\[\tablegap]
+                    Magnetic Field &($\vect{B}$) &Tesla (\si{\tesla})\\[\tablegap]
+                    Magnetic Flux &($\Phi_B$) &Weber (\si{\weber}) \textbf{or} Tesla Square Metres (\si{\tesla \metre\squared})
+                \end{tabular}
+            \end{table}
+            
+        \section{Constants}
+            \label{sec: Constants - Electromagnetism}
+            \begin{table}[!h]
+                \noindent\begin{tabular}{@{} p{50mm} C{10mm} p{50mm}}
+                    Permittivity of Free Space &($\varepsilon_0$) &$8.754\times 10^{-12}\ \si{A^2 . s^4 .kg^{-1} .m^{-3}}$\\[\tablegap]
+                    Permeability of Free Space &($\mu_0$) &$4\pi\times 10^{-7}\ \si{N. A^{-2}}$\\[3\tablegap]
+                    Mass of an Electron &($m_e$) &$9.109\times 10^{-31}\ \si{kg}$\\[\tablegap]
+                    Mass of a Proton &($m_p$) &$1.673\times 10^{-27}\ \si{kg}$\\[\tablegap]
+                    Mass of a Neutron &($m_n$) &$1.675\times 10^{-27}\ \si{kg}$\\[3\tablegap]
+                    Charge of an Electron &($q_e$) &$-1.602\times 10^{-19}\ \si{C}$\\[\tablegap]
+                    Charge of a Proton &($q_p$) &$+1.602\times 10^{-19}\ \si{C}$
+                \end{tabular} 
+            \end{table}
+        
+        \newpage
+        \section{Equations}
+            \label{sec: Equations Electromagnetism}
+
+            \begin{fleqn}
+                \subsection{Electrostatics}
+                    \label{subsec: Electrostatics}
+                \begin{align}
+                    \vect{F} = q\vect{E}
+                \end{align}
+                
+                \eqexp{The force on a charge $q$ in an electric field $\vect{E}$.}
+
+
+                \begin{align}
+                    E = \frac{V}{d}
+                \end{align}
+
+                \eqexp{The uniform electric field strength between two large parallel charged plates, seperated by a distance $d$,  with an applied voltage difference of $V$ across them.}
+
+
+                \begin{align}
+                    W = qV = q\vect{E}\cdot\vect{d}
+                \end{align}
+
+                \eqexp{The work done on a charge $q$ moving across a voltage difference $V$. The work is also given by the dot product of the electric field $\vect{E}$ (assumed uniform) and the displacement vector $\vect{d}$.}
+
+
+                \begin{align}
+                    \vect{E} = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2}\vhat{r}
+                \end{align}
+
+                \eqexp{The electric field vector at a point such that the vector from the charge $Q$ to that point is given by $\vect{r}$.}
+
+                
+                \begin{align}
+                    \vect{F} = \frac{1}{4\pi\varepsilon_0} \frac{Qq}{r^2}\vhat{r}
+                \end{align}
+
+                \eqexp{The force on a charge $q$ from the electric field of charge $Q$. $\vect{r}$ is defined as beginning at $Q$ and ending at $q$.}
+
+
+                \begin{align}
+                    \vect{p} = q\vect{d}
+                \end{align}
+
+                \eqexp{The dipole moment of a pair of opposite charges (with charges $q$ and $-q$).\\$\vect{d}$ points from the negative charge to the positive charge.}
+
+
+                \begin{align}
+                    \vect{\tau_p} = \vect{p} \times \vect{E}
+                \end{align}
+
+                \eqexp{The torque on an electric dipole with dipole moment $\vect{p}$ in an external uniform electric field $\vect{E}$.}
+
+                \begin{align}
+                    \sigma &= \frac{dq}{dA}\\
+                    \rho &= \frac{dq}{dV}
+                \end{align}
+
+                \eqexp{The standard surface charge density ($\sigma$) and volume charge density ($\rho$) forms.}
+
+
+                \begin{align}
+                    \Phi_E = \int \vect{E} \cdot d\vect{A}
+                \end{align}
+
+                \eqexp{The electric flux $\Phi_E$ through a surface is the sum of the parllel components of the field vector at a given point $\vect{E}$, multiplied by the area of the surface at that point $d\vect{A}$.}
+
+                \begin{align}
+                    &\oiint\limits_{surface} \vect{E} \cdot d\vect{A} = \frac{Q_{enc}}{\varepsilon_0}\label{eq: Gauss Law E Integral}\\
+                    &\div{\vect{E}} = \frac{\rho}{\varepsilon}\label{eq: Gauss Law E Derivative}
+                \end{align}
+
+                \eqexp{Gauss' Law for the electric field.}
+
+
+                \begin{align}
+                    &\oiint\limits_{surface} \vect{B} \cdot d\vect{A} = 0\label{eq: Gauss Law B Integral}\\
+                    &\div{\vect{B}} = 0\label{eq: Gauss Law B Derivative}
+                \end{align}
+
+                \eqexp{Gauss' Law for the magnetic field}
+            \end{fleqn}
+
+        \newpage
+        \section{Gauss' Law}
+            \label{sec: Gauss Law}
+            \subsection{Integral Form}
+
+                \begin{equation*}
+                    \oiint\limits_{surface} \vect{E} \cdot d\vect{A} = \frac{Q_{enc}}{\varepsilon_0} \tag{\eqnum{eq: Gauss Law E Integral}}
+                \end{equation*}
+
+                \begin{equation*}
+                    \oiint\limits_{surface} \vect{B} \cdot d\vect{A} = 0 \tag{\eqnum{eq: Gauss Law B Integral}}
+                \end{equation*}
+
+                The first thing to get right here is the integral part of the equations and what they are actually saying and that requires us to talk about flux.
+
+            
+\end{document}

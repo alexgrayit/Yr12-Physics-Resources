@@ -1,0 +1,288 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    \addtocontents{toc}{\protect\newpage}
+
+    \chapter{Fields}
+        \label{ch: Fields}
+        \thispagestyle{noheader}
+
+        ``Field'' is a very general term and describes something that has a value across space. For example, the electric field, represented as $\vect{E}$, is a vector field that exists everywhere in 3D space. There is also an associated voltage field $V$ that is a scalar field throughout space.
+
+        What is meant by this is that the fields have a scalar or vector value for every $(x,\, y,\, z)$ coordinate in space.
+
+        \section{Scalar Fields}
+            \label{sec: Scalar Fields}
+
+            Scalar fields are fields with an attributed value for a given spacial coordinate. For example, a planet has an associated gravitational potential field $U_g$ that is a function of your radial distance from the planet (\figref{fig: 1D GPE}).
+
+            \begin{figure}[!h]
+                \centering
+                \scalebox{0.7}
+                {
+                    %trims left, bottom, right, top
+                    \begin{adjustbox}{clip,trim=5mm 10mm 10mm 10mm}
+                        {\import{images}{1D GPE for person.pgf}}
+                    \end{adjustbox}
+                }
+                \vspace{-2mm}
+                \caption{A graph of the Gravitational Potential Energy for a person and Earth as a function of radial distance from each others' centres of mass.\\
+                Grey represents energies that are impossible to reach since they are below the Earth's surface.}
+                \label{fig: 1D GPE}
+            \end{figure}
+
+            The same field can be represented in 2D as well, with $x$ and $y$ representing the position from the planet and $z$ representing the potential energy strength (the value of $U_g$) at that location.
+
+            \begin{figure}[!h]
+                \centering
+                \scalebox{1}
+                {
+                    %trims left, bottom, right, top
+                    \begin{adjustbox}{clip,trim=10mm 30mm 10mm 10mm}
+                        {\import{images}{2D GPE for person.pgf}}
+                    \end{adjustbox}
+                }
+                \caption{The corresponding 2D field for Gravitational Potential Energy ($U_g$) represented in \figref{fig: 1D GPE}. Grey represents energies that are impossible to reach since they are below the Earth's surface.}
+                \label{fig: 2D GPE}
+            \end{figure}
+            \FloatBarrier
+
+            Graphs like that in \figref{fig: 2D GPE} are not particularly helpful for conceptualising what a scalar field is though. They make it seem like we are looking at a 3D surface, when really we are just looking at a slice of space.\\
+            \figref{fig: 3D Gradient GPE} more accurately represents a scalar field as being a continuous allocation of a number or value to each spacial coordinate, rather than as a spacial curve as in \figref{fig: 2D GPE}
+
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.8}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=40mm 25mm 20mm 20mm}
+                            {\import{images}{3D GPE gradient above.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{The Gravitational Potential Energy Field in the $x-y$ plane viewed from above (brighter = lower).}
+                    \label{subfig: 3D GPE Above}
+                \end{subfigure}
+                \hfill
+                ~
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.8}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=35mm 25mm 20mm 20mm}
+                            {\import{images}{3D GPE gradient side.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{A side view showing the ``slice'' of space being represented.\vspace{1em}}
+                    \label{subfig: 3D Gradient GPE Side}
+                \end{subfigure}
+
+                \vspace{2mm}
+
+                \caption{Figure showing a representation of the Gravitational Potential Energy field as a colour gradient, with brighter representing lower energy.\\The Earth is represented as a blue sphere for scale, though this field model treats the Earth as existing at a point at its centre.
+                }
+
+                \label{fig: 3D Gradient GPE}
+            \end{figure}
+            \FloatBarrier
+
+
+            \newpage
+            However, perhaps the most obvious representation of a scalar field can be seen in \figref{fig: 3D Number GPE}. The potetential energy value that was represented as a colour in \figref{fig: 3D Gradient GPE} is now shown literally as its value. This is the true essence of what a scalar field is.
+
+            The reason you will rarely see them represented this way is because staring at a bunch of numbers is annoying and not really useful for interpreting reality. But in this case, it is much more useful so that you can really understand what is being represented.
+
+            \begin{figure}[!h]
+                \centering
+                \scalebox{1}
+                {
+                    %trims left, bottom, right, top
+                    \begin{adjustbox}{clip,trim=30mm 30mm 20mm 25mm}
+                        {\import{images}{3D GPE numbers.pgf}}
+                    \end{adjustbox}
+                }
+                \caption{A numerical representation of the scalar field in \figref{fig: 3D Gradient GPE}}
+                \label{fig: 3D Number GPE}
+            \end{figure}
+            \FloatBarrier
+
+
+        \newpage
+        \section{Vector Fields}
+            \label{sec: Vector Fields}
+
+            Vector fields, instead of allocating a number value to a given spacial coordinate, allocate a vector value to that spacial coordinate.\\
+            There are many examples in physics of vector fields, there is the electric field $\vect{E}$; the magnetic field $\vect{B}$; and, in some instances, we talk about the gravitational field of an object $\vect{g}$.
+
+            A simple example of a vector field is pictured in \figref{fig: Simple Vector Field}, with the equation for the field given by \eqref{eq: Simple Field}.
+            \begin{equation}
+                \hvec{\mathbb{F}}(x,\, y) = \Matrix{\bfrac{-y}{\sqrt{x^2 + y^2}}\vspace{4mm}\\\bfrac{x}{\sqrt{x^2 + y^2}}\vspace{4mm}\\0}
+                \label{eq: Simple Field}
+            \end{equation}
+
+
+            \begin{figure}[!h]
+                \centering
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \vspace*{7mm}
+                    \centering
+                    \scalebox{0.65}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=30mm 15mm 25mm 10mm}
+                            {\import{images}{2D Simple Vector Field.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{A simple vector field in $\Reals^2$.}
+                    \label{subfig: Simple 2D Field}
+                \end{subfigure}
+                ~
+                \begin{subfigure}[h]{0.45\textwidth}
+                    \centering
+                    \scalebox{0.9}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=40mm 25mm 10mm 20mm}
+                            {\import{images}{3D Simple Vector Field.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{A simple vector field in $\Reals^3$.}
+                    \label{subfig: Simple 3D Field}
+                \end{subfigure}
+
+                \vspace{2mm}
+
+                \caption{A simple 2D vector field represented in both $\Reals^2$ and $\Reals^3$.}
+                \label{fig: Simple Vector Field}
+            \end{figure}
+            \FloatBarrier
+
+            As is the case with \figref{subfig: Simple 3D Field}, it is very common for only a few slices of space to be represented with a vector space diagram. This is purely because as you add more vectors it becomes impossible to get anything useful from the diagram except for ``\textit{Hmmmmmm yes, there are a lot of arrows}.''
+
+            You might also have a field generated by
+
+
+
+
+
+
+
+        \newpage
+        \section{Fields in Physics}
+            \label{sec: Fields in Physics}
+
+            There are a few properties of fields that are less related to the maths of fields and more how fields interact with things. There is also some underlying philosophy regarding fields that is a little confusing at first but makes many things make a whole lot more sense.
+
+            
+            \subsection{The Philosophy of Fields}
+                \label{subsec: The Philosophy of Fields}
+
+                A lot of people start learning about fields and say ``\textit{Earth has a gravitational field}'' or ``\textit{a proton creates an electric field}''.\\
+                While such statements aren't necessarily incorrect, there is a better way to conceptualise fields.\\
+                Instead we say that fields are always there all the time and something like a proton just changes the field.
+
+                This is a somewhat pointless distinction to make during mechanics or electromagnetism, but in quantum this gets very important and is an important foundation to explain many of the strange phenomena we observe.
+
+                For interactions like a proton and electron attracting each other, we then say that each of the particles disturbs the field, and then the field exerts a force on the particles (rather than the particles directly exerting a force on each other).
+
+            
+            \subsection{Addition of Fields}
+                \label{subsec: Combination of Fields}
+
+                Since we say that fields are always there, it makes sense that if multiple things try to change a field, then they would just both do it.\\
+                For instance, we can consider the effect of a proton and an electron on the electric field separately (\figref{fig: Proton and Electon E Fields 2D}).
+                The equations for the fields from the proton and electron are given by \eqref{eq: Proton Electric Field} and \eqref{eq: Electron Electric Field} respectively.
+
+                \begin{equation}
+                    \vect{E}_p = \frac{1}{4\pi\varepsilon_0}\frac{q}{\sqrt{x^2 + y^2}^3}\Matrix{x\\y}
+                    \label{eq: Proton Electric Field}
+                \end{equation}
+                \begin{equation}
+                    \vect{E}_e = \frac{-1}{4\pi\varepsilon_0}\frac{q}{\sqrt{x^2 + y^2}^3}\Matrix{x\\y}
+                    \label{eq: Electron Electric Field}
+                \end{equation}
+
+                \begin{figure}[!h]
+                    \vspace{-1em}
+                    \centering
+                    \begin{subfigure}[h]{0.48\textwidth}
+                        \centering
+                        \vspace*{-4mm}
+                        \scalebox{0.7}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=40mm 15mm 25mm 10mm}
+                                {\import{images}{Proton Electric Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{The effect on electric Field from a proton.}
+                        \label{subfig: Proton Field 2D}
+                    \end{subfigure}
+                    ~
+                    \hfill
+                    \begin{subfigure}[h]{0.48\textwidth}
+                        
+                        \centering
+                        \scalebox{0.7}
+                        {
+                            %trims left, bottom, right, top
+                            \begin{adjustbox}{clip,trim=40mm 15mm 25mm 7mm}
+                                {\import{images}{Electron Electric Field 2D.pgf}}
+                            \end{adjustbox}
+                        }
+                        \caption{The effect on the electric field from an electron.}
+                        \label{subfig: Electron Field 2D}
+                    \end{subfigure}
+
+                    \vspace{-3mm}
+    
+                    \caption{The effect on the electric field from both a proton and an electron.}
+                    \label{fig: Proton and Electon E Fields 2D}
+                \end{figure}
+                \FloatBarrier
+
+                We can then take each of these particles and place them somewhere on the plane so that they aren't on top of each other (because infinities are bad).\\
+                Let's call the position of the proton $\vect{r}_p$,the position of the electron $\vect{r}_p$ and the position of a given field vector $\vect{r}$.
+                This gives new equations for the contribution to the field from each of the particles.
+
+                \begin{equation*}
+                    \vect{r} = \Matrix{x\\y}
+                \end{equation*}
+                \begin{equation*}
+                    \vect{r}_p = \Matrix{x_p\\y_p}
+                \end{equation*}
+                \begin{equation*}
+                    \vect{r}_e = \Matrix{x_e\\y_e}
+                \end{equation*}
+                \begin{equation}
+                    \vect{E}_p = \frac{1}{4\pi\varepsilon_0}\frac{q}{\vmod{\vect{r} - \vect{r}_p}^3}\left(\vect{r} - \vect{r}_p\right)
+                    \label{eq: Proton Electric Field Re-Centred}
+                \end{equation}
+                \begin{equation}
+                    \vect{E}_e = \frac{-1}{4\pi\varepsilon_0}\frac{q}{\vmod{\vect{r} - \vect{r}_e}^3}\left(\vect{r} - \vect{r}_e\right)
+                    \label{eq: Electron Electric Field Re-Centred}
+                \end{equation}
+                
+
+                To get the equation for the total electric field strength vector at each location, you just add the two equations together ($\vect{E} =\vect{E}_p + \vect{E}_e$).
+                
+                \begin{equation}
+                    \vect{E} = \frac{1}{4\pi\varepsilon_0}\frac{q}{\vmod{\vect{r} - \vect{r}_p}^3}\left(\vect{r} - \vect{r}_p\right) + \frac{-1}{4\pi\varepsilon_0}\frac{q}{\vmod{\vect{r} - \vect{r}_e}^3}\left(\vect{r} - \vect{r}_e\right)
+                    \label{eq: Total Electric Vector Field}
+                \end{equation}
+
+                \begin{figure}[h]
+                    \centering
+                    \scalebox{1.3}
+                    {
+                        %trims left, bottom, right, top
+                        \begin{adjustbox}{clip,trim=25mm 20mm 18mm 7mm}
+                            {\import{images}{Proton and Electron Electric Field 2D.pgf}}
+                        \end{adjustbox}
+                    }
+                    \caption{The effect on the electric field from a proton and an electron. The combined effect is the addition of the two vectors at each point.\\(The vectors close to the particles have been omitted for the sake of clarity, since those vectors are large and obscure the main focus)}
+                    \label{fig: Electron and Proton Field 2D}
+                \end{figure}
+                \FloatBarrier
+\end{document}

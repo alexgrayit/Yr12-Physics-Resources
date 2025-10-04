@@ -1,0 +1,298 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    \addtocontents{toc}{\protect\newpage}
+    
+    \chapter{Kinematics}
+        \label{ch: Kinematics}
+        \thispagestyle{noheader}
+
+        Kinematics is the study of motion. It studies things like how different accelerations result in different motion. It does not concern itself with how those accelerations arise, that is \secref{ch: Dynamics}.
+
+        \section{Base Units}
+            \label{sec: Base Units Kinematics}
+
+            \begin{table}[!h]
+                \noindent\begin{tabular}{@{} p{40mm} C{10mm} p{110mm}}
+                    Mass &($m$) &Kilogram (\si{\kilo\gram})\\[\tablegap]
+                    Distance &($s$) &Metres (\si{\metre})\\[\tablegap]
+                    Displacement &($\vect{s}$) &Metres (\si{\metre})\\[\tablegap]
+                    Time &($t$) &Seconds (\si{\second})\\[\tablegap]
+                    Speed &($v$) &Metres per Second (\si{\metre \per\second} \textbf{or} \si{\metre / \second})\\[\tablegap]
+                    Velocity &($\vect{v}$) &Metres per Second (\si{\metre \per\second} \textbf{or} \si{\metre / \second})\\[\tablegap]
+                    Acceleration &($\vect{a}$) &Metres per Second, per Second (\si{\metre \per\second\squared} \textbf{or} \si{\metre /\second /\second} \textbf{or} \si{\metre / \second\squared})\\[\tablegap]
+                \end{tabular}
+            \end{table}
+
+        \section{Constants}
+            \label{sec: Constants Kinematics}
+
+            Gravitational acceleration at Earth's surface ($g$) -- $9.8\, m\,s^{-2}$
+
+
+        \section{Equations}
+            \label{sec: Equations Kinematics}
+            
+            \begin{fleqn}
+                \begin{align}
+                    v = \vmod{\vect{v}}
+                \end{align}
+                
+                \eqexp{Speed is the magnitude of velocity.}
+
+
+                \begin{align}
+                    \vect{v}_{avg} &= \frac{\Delta \vect{s}}{\Delta t} = \frac{\vect{s}_{final} - \vect{s}_{initial}}{t_{final} - t_{initial}} \label{eq: Average Velocity}\\
+                    \vect{a}_{avg} &= \frac{\Delta \vect{v}}{\Delta t} = \frac{\vect{v}_{final} - \vect{v}_{initial}}{t_{final} - t_{initial}} \label{eq: Average Acceleration}
+                \end{align}
+                
+
+                \eqexp{The average velocity vector is the change in the displacement vector divided by the time taken to change.\\ The average acceleration vector is the change in the velocity vector divided by the time taken to change.}
+
+
+                \newpage
+                
+                \begin{align}
+                    \vect{s} &= \vect{u}t + \frac{1}{2}\vect{a}t^2 \label{eq: Displacement with constant Acceleration}\\
+                    \vect{v} &= \vect{u} + \vect{a}t \label{eq: Velocity with constant Acceleration}\\
+                    v^2 &= u^2 + 2\,\vect{a}\cdot\vect{s} \label{eq: Projectile Motion Work}
+                \end{align}
+
+                \eqexp{Standard equations of motion for an object with constant acceleration.\vspace{0.5em}\\
+                \eqref{eq: Projectile Motion Work} uses the dot product of two vectors, for more information see \secref{subsubsec: The Dot Product}.}
+
+
+                \begin{align}
+                    \vect{v}_{_{A\, rel.\, B}} = \vect{v}_A - \vect{v}_B
+                    \label{eq: Velocity of A rel to B}
+                \end{align}
+
+                \eqexp{The velocity of object A as seen in the reference frame of object B.\\(The velocity of A relative to B)}
+
+
+
+
+                \subsection{Non-Syllabus Equations}
+                    \label{subsec: Kinematics Non Syllabus Equations}
+
+                    \begin{align}
+                        \vect{v} &= \frac{d\vect{s}}{dt} \label{eq: Derivative Velocity Definition}\\
+                        \vect{a} &= \frac{d\vect{v}}{dt} = \frac{d^2 \vect{s}}{dt^2} \label{eq: Derivative Acceleration Definition}
+                    \end{align}
+
+                    \eqexp{Derivative defintions of \eqref{eq: Average Velocity} and \eqref{eq: Average Acceleration} where $\Delta t$ is taken as limiting towards 0.}
+
+                    \begin{align}
+                        \vect{j} = \frac{d\vect{a}}{dt} = \frac{d^2\vect{v}}{dt} = \frac{d^3\vect{s}}{dt^3}
+                        \label{eq: Derivative Jerk Definition}
+                    \end{align}
+
+                    \eqexp{Definition of jerk. This is set to 0 for all of high school physics.}
+            \end{fleqn}
+            
+
+            \newpage
+
+            \section{Module Notes}
+                \label{sec: Kinematics Module Notes}
+
+                \subsection{Significant Figures \& Precision}
+                    \label{subsec: Significant Figures}
+
+                    Significant figures are weird when you first encounter them. The concept of an insignificant figure revolves around recursive 0s.
+
+                    Take the number $1.234$. We could write this as $\cdots 0001.234000 \cdots$, but we don't write the 0s because they don't change what the number is, they are insignificant.
+                    The first significant figure is the first digit after the beginning 0s. So in this case $1$ is the first significant figure. Then we just say that the next digit is the 2\super{nd} significant figure etc.
+
+                    The number of significant figures would normally be considered the number of digits until you reach the trailing 0s, so $1.234$ has 4.
+
+                    However, in science significant figures are a bit different.
+
+                    Let's say that you have a ruler which measures to the nearest $mm$ and you measure the length of two rods. One you measure as $50.5\, cm$ and one you measure as $1\,m$.
+
+                    Now, you could just say that the second rod is $1\,m$ and leave it at that, but in reality you know that it's exactly a metre to the nearest millimetre. So, instead you should say that it's $1.00m$, since you know that the second decimal place (nearest $mm$) is definitely 0.
+
+                    \subsubsection{Measurement Uncertainty}
+                        \label{subsubsec: Measurement Uncertainty}
+
+                        There is always uncertainty (i.e. potential error) associated with any measurement. When you measure with a millimetre ruler, was the table exactly a metre long, or was it a little bit longer (say 0.5 mm)?
+
+                        This is the crux of the issue of uncertainty and there are general rules for finding the uncertainty of a given device.
+                        \begin{itemize}
+                            \item Physical Instruments: $\pm$ Half the smallest measurement increment.
+                            \item Digital Instruments: $\pm$ The smallest increment (or, if it flickers back and forth, the amount it flickers by).
+                        \end{itemize}
+                        
+                        When you report a measurement, you can only report to a precision down to the first digit of your uncertainty. For example, if you measure something to be $2.32\,m \pm 0.1\,m$, then you have to report that as $2.3\,m \pm 0.1\,m$
+
+                
+                \newpage
+                \subsection{Scientific Notation}
+                    \label{subsec: Scientific Notation}
+
+                    It can be quite common for big numbers to crop up quite quickly in the sciences, and it can make it quite difficult to compare results.\\
+                    As a result numbers that are very small or very large tend to be compressed using scientific notation.
+
+                    Typically the rule is that you move the decimal place behind the first significant figure and then multiply by $10$ to the power of something so that, if you were to actually multiply, the decimal place would return to the correct spot.
+
+                    For example, take the number $1234000000000$. This number is very large but we can move the decimal point behind the 1 and then multiply by $10^{12}$ so that the number's value doesn't change. We then also get rid of the trailing \textit{insignificant} 0s. (If a 0 is significant as discussed in \secref{subsec: Significant Figures} then it should stay).
+                    \begin{equation*}
+                        1234000000000 = 1.234 \times 10^{12}
+                    \end{equation*}
+                    In the same way we can shorten very small numbers such as $0.0000001234$ (remembering that $10^{-n} = \frac{1}{10^n}$).
+                    \begin{equation*}
+                        0.0000001234 = 1.234 \times 10^{-7}
+                    \end{equation*}
+
+
+                    There is also another way in which this is written, which you can see when you write $2 mm$ (2 millimetres). The `milli' or $m$ in front is equivalent to writing $\times 10^{-3}$, so you could equally say $2\times 10^{-3} m$.
+
+                    There are lots of different prefixes like this and they each represent a different power of 10 (\tableref{table: Scientific Notation Prefixes}).
+                    \vspace{1em}
+
+                    \begin{table}[!h]
+                        \caption{Scientific Notation Prefixes}
+                        \label{table: Scientific Notation Prefixes}
+                        \vspace{-2em}
+                        \begin{center}
+                            \begin{tabular}{||C{5em}|C{5em}|C{5em}||}
+                                \hline
+                                \textbf{Prefix} & \textbf{Symbol} & \textbf{Value}\\
+                                \hline\hline
+                                Peta & P & $\times 10^{15}$\\
+                                \hline
+                                Tera & T & $\times 10^{12}$\\
+                                \hline
+                                Giga & G & $\times 10^{9}$\\
+                                \hline
+                                Mega & M & $\times 10^{6}$\\
+                                \hline
+                                kilo & k & $\times 10^{3}$\\
+                                \hline
+                                hecto & h & $\times 10^{2}$\\
+                                \hline
+                                deca & da & $\times 10^{1}$\\
+                                \hline
+                                -- & -- & --\\
+                                \hline
+                                deci & d & $\times 10^{-1}$\\
+                                \hline
+                                centi & c & $\times 10^{-2}$\\
+                                \hline
+                                milli & m & $\times 10^{-3}$\\
+                                \hline
+                                micro & $\upmu$ & $\times 10^{-6}$\\
+                                \hline
+                                nano & n & $\times 10^{-9}$\\
+                                \hline
+                                pico & p & $\times 10^{-12}$\\
+                                \hline
+                                femto & f & $\times 10^{-15}$\\
+                                \hline
+                            \end{tabular}
+                        \end{center}
+                    \end{table}
+                
+
+
+                \newpage
+                \subsection{Frames of Reference}
+                    \label{subsec: Frames of Reference}
+
+                    When we talk about reference frames we are asking \textit{``what does someone with the motion of that thing see?''}
+
+                    Think of the situation where you're on a train going past a station. As you move past you see the people on the platform moving backwards. But you know that they would see you and the train going forwards. How can we describe this mathematically?
+
+                    You'll notice that when we change into the reference frame of the people on the platform, we have to make it so that their velocity is 0. So, if they have some velocity as a function of time in our frame of reference, we just need to subtract that velocity function from all objects, which will make their velocity 0 and tell us what they see.
+
+                    This is how we get \eqref{eq: Velocity of A rel to B}: $\vect{v}_{_{A\, rel.\, B}} = \vect{v}_A - \vect{v}_B$
+
+                    \subsubsection{The General Non-Relativistic Case}
+
+                        Ignoring the case where motion is occurring near the speed of light (i.e. relativity becomes a problem), there is a somewhat simple generalised process for shifting into another reference frame.
+
+                        Consider the case where the observer sits in an inertial (non-accelerating) reference frame $A$ and observes an object passing by. Let's call the reference frame of the object $B$. To ``shift into'' reference frame $B$ from $A$ (i.e. find out what the object in frame $B$ sees something in reference frame $A$ doing) we must subtract all of the equations of motion of $B$, as seen in $A$, from the motion otherwise observed in $B$.
+
+                        Mathematically we can prove this by using some basic vector principles and calculus.\\
+                        Let's now consider a third (inertial) reference frame $C$ in which we can assign the position of the observer in $A$ as $\vect{s}_{_A}$ and the position of the object in $B$ as $\vect{s}_{_B}$. The vector starting at the position of $A$ and ending at the position of $B$ (i.e. the position of $B$ relative to $A$) is $\vect{s}_{_{B\, rel.\, A}} = \vect{s}_{_B} - \vect{s}_{_A}$\\
+                        We then continue taking the derivative with respect to time (noting that all positions, velocities, accelerations etc. are as they are observed in frame $C$.).
+
+                        \begin{align*}
+                            \frac{d}{dt}(\vect{s}_{_{B\, rel.\, A}}) &= \frac{d}{dt}\left(\vect{s}_{_B} - \vect{s}_{_A}\right)\\[-1em]
+                            \vect{v}_{_{B\, rel.\, A}} &= \vect{v}_{_B} - \vect{v}_{_A}\\[0.5em]
+                            \frac{d}{dt}(\vect{v}_{_{B\, rel.\, A}}) &= \frac{d}{dt}\left(\vect{v}_{_B} - \vect{v}_{_A}\right)\\[-1em]
+                            \vect{a}_{_{B\, rel.\, A}} &= \vect{a}_{_B} - \vect{a}_{_A}\\[-1.5em]
+                            &\vdots
+                        \end{align*}
+
+                        This process allows us to shift into the reference frame of $A$ and determine how an observer in $A$ would observe the object $B$. This is important since we are not shifting from $B$ to $A$ but shifting from $C$ to $A$ and determining how $A$ sees $B$ moving.
+
+                
+            
+            \newpage
+            \section{Derivations of Formulas}
+                \label{sec: Derivations of Formulas Kinematics}
+
+                To derive \eqref{eq: Displacement with constant Acceleration}, \eqref{eq: Velocity with constant Acceleration} \& \eqref{eq: Projectile Motion Work} we need to start with the fact that $\vect{j} = \vect{0}$ (Jerk is defined in \eqref{eq: Derivative Jerk Definition}).
+
+                \begin{equation*}
+                    \vect{j}  = \frac{d\vect{a}}{dt} = \vect{0}
+                \end{equation*}
+
+                So, we can just let acceleration be a constant $\vect{a}$ (it could also be $\vect{0}$). This allows us to integrate it easily.
+                
+                \begin{align*}
+                    \frac{d\vect{v}}{dt} &= \vect{a}\\
+                    d\vect{v} &= \vect{a}\, dt\\
+                    \int_{\vect{u}}^{\vect{v}} d\vect{v} &= \int_0^t \vect{a}\, dt\\
+                    \vect{v} - \vect{u} &= \vect{a}t\\
+                    \vect{v} &= \vect{u} + \vect{a}t \tag{\eqnum{eq: Velocity with constant Acceleration}}\\[1em]
+                    \frac{d\vect{s}}{dt} &= \vect{u} + \vect{a}t\\
+                    d\vect{s} &= \left(\vect{u} + \vect{a}t\right)dt\\
+                    \int_{\vect{s}_0}^{\vect{s}} d\vect{s} &= \int_0^t \left(\vect{u} + \vect{a}t\right)dt\\
+                    \vect{s} - \vect{s}_0 &= \vect{u}t + \frac{1}{2}\vect{a}t^2 \tag{\textit{Let $\vect{s}_0 = \vect{0}$}}\\
+                    \vect{s} &= \vect{u}t + \frac{1}{2}\vect{a}t^2 \tag{\eqnum{eq: Displacement with constant Acceleration}}
+                \end{align*}
+
+                The step where we let $\vect{s}_0 = \vect{0}$ is important because it means we can go back and let it equal something if we want to more easily deal with a situation where our displacement at $t=0$ is non-zero.
+
+
+                \newpage
+                \begin{equation*}
+                    a_x = \frac{dv_x}{dt} = \frac{dv_x}{dx}\,\frac{dx}{dt} = \frac{dv_x}{dx} v_x = \frac{dv_x}{dx}\,\frac{d}{dv_x}\left(\frac{1}{2}{v_x}^2\right) = \frac{d}{dx}\left(\frac{1}{2}{v_x}^2\right)
+                \end{equation*}
+                
+                This is generally applicable to all of the dimensions, not just $x$.
+
+                \begin{align*}
+                    a_x \ud x &= d\left(\frac{1}{2}{v_x}^2\right)\\
+                    \int_{x_0}^{x} a_x \ud x &= \frac{1}{2}\int_{{u_x}^2}^{{v_x}^2} d\left({v_x}^2\right)\\
+                    a_x\left(x - x_0\right) &= \frac{1}{2}\left( {v_x}^2 - {u_x}^2 \right)\\
+                    2a_x x - 2a_x x_0 &= {v_x}^2 - {u_x}^2
+                \end{align*}
+                \vspace{2em}
+
+                \begin{center}
+                    Now we add together the equations for $x$, $y$ and $z$.
+                \end{center}
+
+                \begin{align*}
+                    \left(2a_x x - 2a_x x_0\right) + \left(2a_y y - 2a_y y_0\right) + \left(2a_z z - 2a_z z_0\right) &= \left({v_x}^2 - {u_x}^2\right) + \left({v_y}^2 - {u_y}^2\right) + \left({v_z}^2 - {u_z}^2\right)\\
+                    2\left(a_x x + a_y y + a_z z\right) - 2\left(a_x x_0 + a_y y_0 + a_z z_0\right) & = \left({v_x}^2 + {v_y}^2 + {v_z}^2\right) - \left({u_x}^2 + {u_y}^2 + {u_z}^2\right)\\
+                    2\left(\vect{a} \cdot \vect{s}\right) - 2\left(\vect{a} \cdot \vect{s}_0\right) &= \vmod{\vect{v}}^2 - \vmod{\vect{u}}^2
+                \end{align*}
+                \vspace{2em}
+
+                \begin{center}
+                    As with before, we'll let $\vect{s}_0 = \vect{0}$.
+                \end{center}
+                
+                \begin{align*}
+                    2\vect{a}\cdot\vect{s} &= v^2 - u^2\\
+                    v^2 = u^2 &+ 2\vect{a}\cdot\vect{s} \tag{\eqnum{eq: Projectile Motion Work}}
+                \end{align*}
+
+
+                
+
+
+\end{document}

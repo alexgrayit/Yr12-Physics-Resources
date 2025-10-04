@@ -1,0 +1,80 @@
+\documentclass[main.tex]{subfiles}
+\begin{document}
+    \chapter{Waves \& Thermodynamics}
+        \label{ch: Waves and Thermodynamics}
+        \thispagestyle{noheader}
+
+
+        \section{Waves}
+            \label{sec: Waves}
+
+            Waves crop up in many areas of physics, not just mechanics. The most common forms of waves you will deal with are sound waves since they are the easiest mathematically and also the type that you are most used to.\\
+            There are also waves in strings, solids, water or even the electromagnetic field (light). 
+
+            A wave is characterised by an oscillation of some value which travels through space over some period of time. For instance a sound wave is an oscillation of pressure which propagates (moves) through space. What is important is that although there is a high pressure zone which moves through the air, the air particles do not move with the pressure wave, they simply oscillate around their original position.
+
+            \subsection{Rules for all Waves}
+                \label{subsec: Rules for all Waves}
+
+                All waves follow a key set of rules which will be set out here. Since we're talking about all waves not just mechanical waves, we're going to let the wave be represented by a wave function $\Psi(x,\,t)$, where $\Psi$ could represent the pressure value at a given $x$ (displacement) and $t$ (time) of a pressure wave, the height of a wave in a string, or the displacement between turns in a spring.
+
+                Wave functions are often represented mathematically as some form of sine wave dependant on time and position, for example $\Psi(x,\,t) = A \sin (\omega t - kx)$
+
+                \subsubsection{Addition of Waves (Interference)}
+                    \label{subsubsec: Addition of Waves}
+
+                    If you have two waves with respective wave functions $\Psi_1(x,\,t)$ and $\Psi_2(x,\,t)$ then the final wave that you see is just $\Psi_1 + \Psi_2$ (where each value at a given $x$ and $t$ is added, just like if you added the functions $f(x) = x^2$ and $g(x) = x$ giving $f + g = x^2 + x$).
+
+
+                \subsubsection{Reflection of Waves}
+                    \label{subsubsec: Reflection of Waves}
+
+                    Let's say that you have a sound wave travelling towards a wall (we'll get to that in \secref{}). The sound wave will reflect off the wall just like you might expect a ball hitting a wall to reflect (though the wave isn't affected by gravity), i.e. its angle of incidence $\theta_i$ is equal to its angle of reflection $\theta_r$.\\
+                    This is because the velocity of the wave into the wall is reversed.
+                    
+                    \begin{figure}[!h]
+                        \centering
+                        \vspace{-1em}
+                        \begin{subfigure}[h]{0.45\textwidth}
+                            \centering
+                            \vspace{0.5em}
+                            \scalebox{0.8}
+                            {
+                                %trims left, bottom, right, top
+                                \begin{adjustbox}{clip,trim=30mm 60mm 15mm 10mm}
+                                    {\import{images}{Ray Reflection Diagram.pgf}}
+                                \end{adjustbox}
+                            }
+
+                            \caption{Digram showing the reflection behaviour of a ray of a wave in 2D.}
+                        \end{subfigure}
+                        \hfill
+                        \begin{subfigure}[h]{0.45\textwidth}
+                            \centering
+                            \scalebox{0.45}
+                            {
+                                %trims left, bottom, right, top
+                                \begin{adjustbox}{clip,trim=180mm 80mm 130mm 50mm}
+                                    {\import{images}{Ray Reflection Diagram 3D.pgf}}
+                                \end{adjustbox}
+                            }
+
+                            \caption{Diagram showing the reflection of a wave off of a surface, with the vertical axis representing the amplitude $A$ of oscillation of the wave.}
+                        \end{subfigure}
+                        
+                        \caption{Diagram showing the reflection of a single ray of a wave.}
+                        \label{fig: Wave Ray Reflection}
+                    \end{figure}
+                    \FloatBarrier
+                    \vspace{2em}
+                    
+                \subsubsection{Intensity of a Wave}
+                    \label{subsubsec: Intensity of a Wave}
+
+                    Each type of wave has what's called intensity, which is related to the amount of energy stored in the wave. A ray of light can be said to have a certain amount of intensity as well as sound waves.
+
+
+        \newpage
+        \section{Thermodynamics}
+            \label{sec: Thermodynamics}
+\end{document}
